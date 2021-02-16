@@ -10,6 +10,7 @@ jobs:
       - image: circleci/mysql:5.7.33
         environment:
           MYSQL_ROOT_PASSWORD: password
+          # test
 
     working_directory: ~/repo
 
