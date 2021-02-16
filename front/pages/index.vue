@@ -2,6 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <div>
+        <p>This is test message</p>
         <button
           type="button"
           name="button"
