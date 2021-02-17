@@ -10,6 +10,7 @@ jobs:
       - image: circleci/mysql:5.7.33
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: app_test
 
     working_directory: ~/repo
 
