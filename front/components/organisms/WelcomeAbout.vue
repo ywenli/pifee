@@ -1,43 +1,55 @@
 <template>
-  <v-img
-    dark
-    src="https://picsum.photos/id/20/1920/1080?blur=5"
-    gradient="to top right, rgba(19,84,122,.6), rgba(128,208,199,.9)"
-    :height="imgHeight"
-  >
-    <v-row
-      align="center"
-      justify="center"
-      :style="{ height: `${imgHeight}px` }"
-    >
-      <v-col
-        cols="12"
-        class="text-center"
+  <v-row class="WelcomeAbout">
+    <v-col cols="12" md="6">
+      <h1 class="AppTitle">Pifee</h1>
+      <p>Pifeeはエンジニアのためのポートフォリオ共有サイトです。</p>
+      <v-btn
+        class="LoginButton"
+        color="primary"
+        rounded
+        to="#"
+        >はじめる
+      </v-btn>
+      <v-btn
+        class="AboutButton"
+        color="info"
+        rounded
+        to="#"
       >
-        <h1 class="display-1 mb-4">
-          未来を作ろう。ワクワクしよう。
-        </h1>
-        <h4
-          class="subheading"
-          :style="{ letterSpacing: '5px' }"
-        >
-          中小企業に特化した事業計画策定ツール
-        </h4>
-      </v-col>
-    </v-row>
-  </v-img>
+        About Pifee
+      </v-btn>
+    </v-col>
+    <v-col cols="12" md="6">
+      <img
+        src="~/assets/image/home/content_team.svg"
+        width="400"
+        height="255"
+        alt="トップ画像"
+      />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      imgHeight: 500,
     }
   },
 }
 </script>
 
 <style>
-
+.WelcomeAbout {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.LoginButton {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.AboutButton {
+  text-transform: none;
+  font-weight: bold;
+}
 </style>
