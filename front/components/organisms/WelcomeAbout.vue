@@ -13,7 +13,7 @@
       <BaseButton
         class="button__about"
         to="#"
-        color="white"
+        color="grey lighten-5"
       >
         About Pifee
       </BaseButton>
