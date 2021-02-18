@@ -1,23 +1,22 @@
 <template>
-  <v-row class="WelcomeAbout">
+  <v-row class="welcome-page__about">
     <v-col cols="12" md="6">
       <h1 class="AppTitle">Pifee</h1>
       <p>Pifeeはエンジニアのためのポートフォリオ共有サイトです。</p>
-      <v-btn
-        class="LoginButton"
+      <BaseButton
+        class="button__login"
+        to="#"
         color="primary"
-        rounded
+      >
+        はじめる
+      </BaseButton>
+      <BaseButton
+        class="button__about"
         to="#"
-        >はじめる
-      </v-btn>
-      <v-btn
-        class="AboutButton"
-        color="info"
-        rounded
-        to="#"
+        color="white"
       >
         About Pifee
-      </v-btn>
+      </BaseButton>
     </v-col>
     <v-col cols="12" md="6">
       <img
@@ -31,7 +30,9 @@
 </template>
 
 <script>
+import BaseButton from '../atoms/BaseButton.vue'
 export default {
+  components: { BaseButton },
   data() {
     return {
     }
@@ -40,16 +41,11 @@ export default {
 </script>
 
 <style>
-.WelcomeAbout {
+.welcome-page__about {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-.LoginButton {
-  font-weight: bold;
+.button__login {
   margin-right: 1rem;
-}
-.AboutButton {
-  text-transform: none;
-  font-weight: bold;
 }
 </style>
