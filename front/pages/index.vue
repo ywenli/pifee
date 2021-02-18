@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <v-container>
     <WelcomeAbout />
     <WelcomePopular />
     <WelcomeCategory />
     <WelcomeJoin />
-  </div>
+  </v-container>
 </template>
 
 <script>
