@@ -25,13 +25,13 @@ export default {
     to: {
       type: String,
       defalt: ''
-    },
+    }
   },
   methods: {
     click() {
       this.$emit('click');
     }
-  },
+  }
 }
 </script>
 
