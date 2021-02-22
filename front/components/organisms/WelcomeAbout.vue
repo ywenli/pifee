@@ -2,7 +2,9 @@
   <v-container>
     <v-row class="welcome-page__about" justify="center">
       <v-col cols="12" sm="6" md="6">
-        <h1 class="welcome-page__title display-3 font-weight-medium">Pifee</h1>
+        <h1 class="welcome-page__title display-3 font-weight-medium">
+          Pifee
+        </h1>
         <p>Pifeeはエンジニアのためのポートフォリオ共有サイトです。</p>
         <BaseButton
           class="button__login"
@@ -25,7 +27,7 @@
           width="400"
           height="255"
           alt="トップ画像"
-        />
+        >
       </v-col>
     </v-row>
   </v-container>
@@ -35,10 +37,10 @@
 import BaseButton from '../atoms/BaseButton.vue'
 export default {
   components: { BaseButton },
-  data() {
+  data () {
     return {
     }
-  },
+  }
 }
 </script>
 

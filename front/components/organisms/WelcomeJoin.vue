@@ -3,8 +3,12 @@
     <v-row justify="center">
       <v-col cols="12" sm="6" md="6">
         <div class="join__sentense">
-          <p class="join__title display-2 font-weight-medium">Join pifee</p>
-          <p class="headline">Let's share your works!</p>
+          <p class="join__title display-2 font-weight-medium">
+            Join pifee
+          </p>
+          <p class="headline">
+            Let's share your works!
+          </p>
         </div>
         <BaseButton
           class="join__button__login"
@@ -29,7 +33,7 @@
 import BaseButton from '../atoms/BaseButton.vue'
 
 export default {
-  components: { BaseButton },
+  components: { BaseButton }
 
 }
 </script>

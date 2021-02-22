@@ -17,11 +17,11 @@
 
 <script>
 export default {
-  data({ $config: { appName } }) {
+  data ({ $config: { appName } }) {
     return {
       appName
     }
-  },
+  }
 }
 </script>
 
