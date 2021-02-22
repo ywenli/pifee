@@ -41,6 +41,9 @@ module.exports = {
     // 不要なカッコは消す
     'no-extra-parens': 1,
     // 無駄なスペースは削除
-    'no-multi-spaces': 2
+    'no-multi-spaces': 2,
+    // 使ってない変数があってもいい
+    '@typescript-eslint/no-unused-vars': 0,
+    'no-unused-vars': 0
   }
 }
