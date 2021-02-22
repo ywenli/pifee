@@ -91,7 +91,7 @@ jobs:
           working_directory: ~/repo/front
       - run:
           name: install-packages
-          command: npm install
+          command: npm install --legacy-peer-deps
           working_directory: ~/repo/front
       - save_cache:
           paths:
