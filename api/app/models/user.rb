@@ -12,5 +12,5 @@ class User < ApplicationRecord
                           with: VALID_PASSWORD_REGEX,
                           message: :invalid_password
                         },
-                        allow_nil: true,
+                        allow_nil: true
 end
