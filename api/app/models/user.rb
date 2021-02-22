@@ -13,5 +13,4 @@ class User < ApplicationRecord
                           message: :invalid_password
                         },
                         allow_nil: true,
-  validates :activated, inclusion: { in: [ true, false ]}
 end
