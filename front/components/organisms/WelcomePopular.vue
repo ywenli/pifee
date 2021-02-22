@@ -1,7 +1,9 @@
 <template>
   <v-container class="popular__container">
     <v-row>
-      <p class="popular__title display-1 font-weight-bold">Popular</p>
+      <p class="popular__title display-1 font-weight-bold">
+        Popular
+      </p>
     </v-row>
     <v-row>
       <v-col
@@ -16,7 +18,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="200px"
           >
-            <v-card-title v-text="card.title"></v-card-title>
+            <v-card-title v-text="card.title" />
           </v-img>
         </v-card>
       </v-col>
@@ -25,15 +27,15 @@
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4 },
-      ],
-    }),
-  }
+export default {
+  data: () => ({
+    cards: [
+      { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4 },
+      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4 },
+      { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4 }
+    ]
+  })
+}
 </script>
 
 <style>

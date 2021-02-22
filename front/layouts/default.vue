@@ -14,7 +14,7 @@
 import Header from '../components/organisms/Header.vue'
 import Footer from '../components/organisms/Footer.vue'
 export default {
-  components: { Header, Footer },
+  components: { Header, Footer }
 
 }
 </script>

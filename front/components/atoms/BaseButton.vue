@@ -4,8 +4,8 @@
     :color="color"
     rounded
     x-large
-    @click="click"
     :to="to"
+    @click="click"
   >
     <slot />
   </v-btn>
@@ -24,12 +24,13 @@ export default {
     },
     to: {
       type: String,
-      defalt: ''
+      required: false,
+      default: ''
     }
   },
   methods: {
-    click() {
-      this.$emit('click');
+    click () {
+      this.$emit('click')
     }
   }
 }

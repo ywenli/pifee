@@ -17,7 +17,7 @@ export default {
     WelcomeAbout,
     WelcomePopular,
     WelcomeCategory,
-    WelcomeJoin,
+    WelcomeJoin
   }
 }
 </script>
