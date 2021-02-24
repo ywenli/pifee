@@ -14,4 +14,9 @@ class User < ApplicationRecord
                           message: :invalid_password
                         },
                         allow_nil: true
+
+  # 共通のJSONレスポンス
+  def my_json
+    as_json(only: [:id, :name, :email, :created_at])
+  end
 end
