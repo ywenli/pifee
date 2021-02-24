@@ -17,6 +17,16 @@ module UserAuth
       end
     end
 
+
+    # token_lifetimeの日本語変換を返す
+    # @example
+    # "2.hours".lifetime_text #=> {
+    #   time = 2, period = hour = 時間 }
+    def lifetime_text
+      time, period = @lifetime.inspect.sub(/s\z/,"").split
+      time + I18n.t("datetime.periods.#{period}", default: "")
+    end
+
     private
 
       # エンコードキー(config/initializers/user_auth.rb)

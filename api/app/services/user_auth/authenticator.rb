@@ -46,5 +46,10 @@ module UserAuth
         return if token.blank?
         @_current_user ||= fetch_entity_from_token
       end
+
+      # 401エラーかつ、クッキーを削除する
+      def unauthorized_user
+        head(:unauthorized) && delete_cookie
+      end
   end
 end

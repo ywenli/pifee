@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include UserAuth::Tokenizable
   # gem bcrypt
   has_secure_password
 
