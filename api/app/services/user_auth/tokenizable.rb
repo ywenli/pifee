@@ -1,5 +1,5 @@
 module UserAuth
-  module Tokeni
+  module Tokenizable
     def self.included(base)
       # Userクラスで Tokenizable を include したときに 'base.extend ClassMethods' が実行される
       base.extend ClassMethods
@@ -22,6 +22,23 @@ module UserAuth
         end
     end
 
+    ## instane method
+    # トークンを返す
+    def to_token
+      AuthToken.new(payload: to_token_payload).token
     end
+
+    # 有効期限付きのトークンを返す
+    def to_lifetime_token(lifetime)
+      auth = AuthToken.new(lifetime: lifetime, payload: to_token_payload)
+      { token: auth.token, lifetime_text: auth.lifetime_text }
+    end
+
+    private
+
+      def to_token_payload
+        { sub: id }
+      end
+
   end
 end
