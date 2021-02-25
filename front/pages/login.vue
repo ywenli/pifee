@@ -53,6 +53,23 @@
             </BaseButton>
           </v-row>
         </v-card-text>
+        <v-card-actions
+          class='my-4'
+        >
+          <v-container>
+            <v-row justify='center'>
+              アカウントをお持ちでないですか？
+            </v-row>
+            <v-row justify='center' class="my-4">
+              <nuxt-link
+                to='/signup'
+                class='text-decoration-none'
+              >
+                アカウント作成
+              </nuxt-link>
+            </v-row>
+          </v-container>
+        </v-card-actions>
       </v-card>
     </v-row>
   </v-container>

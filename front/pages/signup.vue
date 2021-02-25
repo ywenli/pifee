@@ -66,6 +66,23 @@
             </BaseButton>
           </v-row>
         </v-card-text>
+        <v-card-actions
+          class='my-4'
+        >
+          <v-container>
+            <v-row justify='center'>
+              アカウントをお持ちですか？
+            </v-row>
+            <v-row justify='center' class="my-4">
+              <nuxt-link
+                to='/login'
+                class='text-decoration-none'
+              >
+                ログインする
+              </nuxt-link>
+            </v-row>
+          </v-container>
+        </v-card-actions>
       </v-card>
     </v-row>
   </v-container>
