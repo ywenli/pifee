@@ -27,7 +27,7 @@
           </p>
           <BaseTextField
             v-model='name'
-            label='名前'
+            label='ユーザー名'
             rules='max:20|required'
             placeholder='半角英数字'
             prepend-icon='mdi-account'
