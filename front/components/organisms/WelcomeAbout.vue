@@ -8,8 +8,9 @@
         <p>Pifeeはエンジニアのためのポートフォリオ共有サイトです。</p>
         <BaseButton
           class="button__login"
-          to="#"
+          to="/signup"
           color="primary"
+          nuxt
         >
           はじめる
         </BaseButton>
