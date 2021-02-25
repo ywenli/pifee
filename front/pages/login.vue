@@ -68,9 +68,10 @@ export default {
   },
   data () {
     return {
-      params: { auth: { email: '', password: '' } },
+      email: '',
+      password: '',
       error: '',
-      show: 'false',
+      show: false,
       loading: false
     }
   },
