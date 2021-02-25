@@ -100,7 +100,10 @@ export default {
     },
     formReset () {
       this.$refs.form.reset()
-      this.params = { user: { name: '', email: '', password: '' } }
+      this.name = ''
+      this.email = ''
+      this.password = ''
+      this.error = ''
     }
   }
 
