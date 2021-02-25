@@ -39,11 +39,13 @@ module.exports = {
     'vue/attribute-hyphenation': 'off',
     'vue/no-parsing-error': 'off',
     // 不要なカッコは消す
-    'no-extra-parens': 'warning',
+    'no-extra-parens': 'warn',
     // 無駄なスペースは削除
     'no-multi-spaces': 'error',
     // 使ってない変数があってもいい
     '@typescript-eslint/no-unused-vars': 'off',
-    'no-unused-vars': 'off'
+    'vue/no-unused-vars': 'off',
+    // html属性のクオート修正をoff (prettierと競合する設定)
+    'vue/html-quotes': 'off'
   }
 }

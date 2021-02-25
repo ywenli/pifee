@@ -25,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/vee-validate'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -78,7 +79,10 @@ export default {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    transpile: [
+      'vee-validate/dist/rules'
+    ]
   },
   publicRuntimeConfig: {
     // アプリ名を環境変数で指定
