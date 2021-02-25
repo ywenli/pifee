@@ -18,10 +18,10 @@
         max-width='320'
         color='transparent'
       >
-        <v-card-title primary-title>
-          <slot name='form-card-content' />
-        </v-card-title>
-        <v-form>
+        <v-form
+          ref='form'
+          v-model='isValid'
+        >
           <p v-if='error' class='errors'>
             {{ error }}
           </p>
@@ -54,14 +54,18 @@
             @click:append='show = !show'
           />
         </v-form>
-        <v-row justify='center'>
-          <BaseButton
-            color='primary'
-            @click="signup"
-          >
-            登録する
-          </BaseButton>
-        </v-row>
+        <v-card-text class='px-0'>
+          <v-row justify='center'>
+            <BaseButton
+              color='primary'
+              :disabled='!isValid || loading'
+              :loading='loading'
+              @click='signup'
+            >
+              登録する
+            </BaseButton>
+          </v-row>
+        </v-card-text>
       </v-card>
     </v-row>
   </v-container>
@@ -81,12 +85,22 @@ export default {
       email: '',
       password: '',
       error: '',
-      show: 'false'
+      show: false,
+      loading: false,
+      isValid: false
     }
   },
   methods: {
     signup () {
-
+      this.loading = true
+      setTimeout(() => {
+        this.formReset()
+        this.loading = false
+      }, 1500)
+    },
+    formReset () {
+      this.$refs.form.reset()
+      this.params = { user: { name: '', email: '', password: '' } }
     }
   }
 
