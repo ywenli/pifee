@@ -54,7 +54,6 @@
           <v-row justify='center'>
             <BaseButton
               color='primary'
-              :disabled="!isValid || loading"
               :loading='loading'
               @click="login"
             >
