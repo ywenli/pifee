@@ -18,16 +18,16 @@
         max-width='320'
         color='transparent'
       >
-        <v-card-title primary-title>
-          <slot name='form-card-content' />
-        </v-card-title>
-        <v-form>
+        <v-form
+          ref='form'
+          v-model='isValid'
+        >
           <p v-if='error' class='errors'>
             {{ error }}
           </p>
           <BaseTextField
             v-model='name'
-            label='名前'
+            label='ユーザー名'
             rules='max:20|required'
             placeholder='半角英数字'
             prepend-icon='mdi-account'
@@ -54,14 +54,35 @@
             @click:append='show = !show'
           />
         </v-form>
-        <v-row justify='center'>
-          <BaseButton
-            color='primary'
-            @click="signup"
-          >
-            登録する
-          </BaseButton>
-        </v-row>
+        <v-card-text class='px-0'>
+          <v-row justify='center'>
+            <BaseButton
+              color='primary'
+              :disabled='!isValid || loading'
+              :loading='loading'
+              @click='signup'
+            >
+              登録する
+            </BaseButton>
+          </v-row>
+        </v-card-text>
+        <v-card-actions
+          class='my-4'
+        >
+          <v-container>
+            <v-row justify='center'>
+              アカウントをお持ちですか？
+            </v-row>
+            <v-row justify='center' class="my-4">
+              <nuxt-link
+                to='/login'
+                class='text-decoration-none'
+              >
+                ログインする
+              </nuxt-link>
+            </v-row>
+          </v-container>
+        </v-card-actions>
       </v-card>
     </v-row>
   </v-container>
@@ -81,12 +102,25 @@ export default {
       email: '',
       password: '',
       error: '',
-      show: 'false'
+      show: false,
+      loading: false,
+      isValid: false
     }
   },
   methods: {
     signup () {
-
+      this.loading = true
+      setTimeout(() => {
+        this.formReset()
+        this.loading = false
+      }, 1500)
+    },
+    formReset () {
+      this.$refs.form.reset()
+      this.name = ''
+      this.email = ''
+      this.password = ''
+      this.error = ''
     }
   }
 
