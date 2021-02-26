@@ -102,13 +102,19 @@ export default {
     }
   },
   methods: {
-    login () {
+    async login () {
       this.loading = true
-      setTimeout(() => {
-        this.$store.dispatch('login')
-        this.$router.replace('/')
-        this.loading = false
-      }, 1500)
+      const params = { auth: { email: this.email, password: this.password } }
+      await this.$axios.$post('/api/v1/user_token', params)
+        .then(response => this.authSuccessful(response))
+        .catch(error => this.authFailure(error))
+      this.loading = false
+    },
+    authSuccessful (response) {
+      console.log(response)
+    },
+    authFailure ({ response }) {
+      console.log(response)
     }
   }
 
