@@ -9,7 +9,7 @@
         class='my-8 text-center'
       >
         <h1 class='text-h5 font-weight-bold'>
-          ログイン
+          パスワード再設定
         </h1>
       </v-col>
       <v-card
@@ -18,10 +18,23 @@
         max-width='320'
         color='transparent'
       >
+        <v-card-text>
+          ユーザー名とメールアドレスを入力してください。
+          新しいパスワードを再設定するためのリンクをお送りします。
+        </v-card-text>
         <v-form>
           <p v-if='error' class='errors'>
             {{ error }}
           </p>
+          <BaseTextField
+            v-model='name'
+            label='ユーザー名'
+            rules='max:20|required'
+            placeholder='半角英数字'
+            prepend-icon='mdi-account'
+            counter='20'
+            maxlength='20'
+          />
           <BaseTextField
             v-model='email'
             label='メールアドレス'
@@ -29,36 +42,16 @@
             placeholder='your@email.com'
             prepend-icon='mdi-email'
           />
-          <BaseTextField
-            v-model='password'
-            label='パスワード'
-            rules='min:8|required'
-            placeholder='8文字以上'
-            prepend-icon='mdi-lock'
-            :type='show ? "text" : "password"'
-            :append-icon='show ? "mdi-eye" : "mdi-eye-off"'
-            autocomplete='on'
-            vid='password'
-            @click:append='show = !show'
-          />
         </v-form>
-        <v-row justify='end'>
-          <nuxt-link
-            to="/password/reset"
-            class="my-0 cbody-2 text-decoration-none"
-          >
-            パスワードを忘れた
-          </nuxt-link>
-        </v-row>
-        <v-card-text class="my-5">
+        <v-card-text class="px-0">
           <v-row justify='center'>
             <BaseButton
               color='primary'
               :disabled="!isValid || loading"
               :loading='loading'
-              @click="login"
+              @click="sendPasswordReset"
             >
-              ログイン
+              パスワード再設定リンクを送信
             </BaseButton>
           </v-row>
         </v-card-text>
@@ -67,7 +60,7 @@
         >
           <v-container>
             <v-row justify='center'>
-              アカウントをお持ちでないですか？
+              または
             </v-row>
             <v-row justify='center' class="my-4">
               <nuxt-link
@@ -85,8 +78,8 @@
 </template>
 
 <script>
-import BaseTextField from '../components/atoms/BaseTextField.vue'
-import BaseButton from '../components/atoms/BaseButton.vue'
+import BaseTextField from '@/components/atoms/BaseTextField.vue'
+import BaseButton from '@/components/atoms/BaseButton.vue'
 export default {
   components: {
     BaseTextField,
@@ -94,22 +87,14 @@ export default {
   },
   data () {
     return {
+      name: '',
       email: '',
-      password: '',
       error: '',
       show: false,
       loading: false
     }
   },
   methods: {
-    login () {
-      this.loading = true
-      setTimeout(() => {
-        this.$store.dispatch('login')
-        this.$router.replace('/')
-        this.loading = false
-      }, 1500)
-    }
   }
 
 }
