@@ -109,8 +109,9 @@ export default {
         .catch(error => this.authFailure(error))
       this.loading = false
     },
-    authSuccessful (response) {
-      console.log(response)
+    async authSuccessful (response) {
+      await this.$auth.login(response)
+      console.log(this.$store.state.current.user)
     },
     authFailure ({ response }) {
       console.log(response)
