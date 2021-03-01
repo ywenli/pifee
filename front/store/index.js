@@ -11,15 +11,16 @@ export const mutations = {
   setLoggedIn (state, payload) {
     state.loggedIn = payload
   },
-  setCurrentUser (state, palyload {
+  setCurrentUser (state, payload) {
     state.current.user = payload
-  })
+  }
 }
 
 export const actions = {
   login ({ commit }) {
     commit('setLoggedIn', true)
   },
-  getCurrentUser({ commit }, user) {
-    commit('setCurrentUser', true)
+  getCurrentUser ({ commit }, user) {
+    commit('setCurrentUser', user)
   }
+}
