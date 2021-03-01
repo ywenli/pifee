@@ -1,6 +1,8 @@
 <template>
   <v-app-bar
     app
+    elevation='1'
+    color='white'
   >
     <v-appbar-title>
       <nuxt-link

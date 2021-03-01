@@ -1,20 +1,19 @@
 <template>
   <v-app>
-    <Header />
+    <TheHeaderAfterLogin />
     <v-main>
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
-    <Footer />
+    <TheFooter />
   </v-app>
 </template>
 
 <script>
-import Header from '../components/organisms/Header.vue'
-import Footer from '../components/organisms/Footer.vue'
+import TheHeaderAfterLogin from '../components/organisms/TheHeaderAfterLogin.vue'
+import TheFooter from '../components/organisms/TheFooter.vue'
 export default {
-  components: { Header, Footer }
-
+  components: { TheHeaderAfterLogin, TheFooter }
 }
 </script>

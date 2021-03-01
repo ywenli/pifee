@@ -1,9 +1,11 @@
 <template>
   <v-container class="category__container">
     <v-row>
-      <p class="category__tilte display-1 font-weight-bold">
-        Category
-      </p>
+      <v-col>
+        <p class="category__tilte display-1 font-weight-bold">
+          Category
+        </p>
+      </v-col>
     </v-row>
     <v-row justify="center">
       <v-col

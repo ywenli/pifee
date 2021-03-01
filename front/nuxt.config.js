@@ -27,7 +27,8 @@ export default {
   plugins: [
     'plugins/auth',
     'plugins/axios',
-    'plugins/vee-validate'
+    'plugins/vee-validate',
+    'plugins/nuxtClientInit'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
