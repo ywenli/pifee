@@ -30,6 +30,21 @@ class Authentication {
     return new Date().getTime() < this.getExpire()
   }
 
+  // Vuexのユーザーを返す
+  get user () {
+    return this.store.state.current.user || {}
+  }
+
+  // ユーザーオブジェクトからユーザーidを返す
+  isUserPresent () {
+    return ('id' in this.user)
+  }
+
+  // 有効期限内、かつユーザーオブジェクトが存在する場合にtrueを返す
+  get loggedIn () {
+    return this.isAuthenticated() && this.isUserPresent()
+  }
+
   // ログイン処理
   login ({ exp, user }) {
     this.setStorage(exp)
