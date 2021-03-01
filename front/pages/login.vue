@@ -111,7 +111,6 @@ export default {
     },
     async authSuccessful (response) {
       await this.$auth.login(response)
-      console.log(this.$store.state.current.user)
     },
     authFailure ({ response }) {
       console.log(response)
