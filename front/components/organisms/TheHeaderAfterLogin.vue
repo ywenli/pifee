@@ -16,6 +16,7 @@
     <v-spacer />
 
     <v-menu
+      v-if='loggedIn'
       app
       offset-x
       offset-y
