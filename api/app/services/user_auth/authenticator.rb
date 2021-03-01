@@ -36,11 +36,6 @@ module UserAuth
         nil
       end
 
-      # subjectからユーザーを検索する
-      def entity_for_user
-        User.find @payload["sub"]
-      end
-
       # トークンのユーザーを返す
       def current_user
         return if token.blank?

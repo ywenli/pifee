@@ -54,7 +54,6 @@
           <v-row justify='center'>
             <BaseButton
               color='primary'
-              :disabled="!isValid || loading"
               :loading='loading'
               @click="login"
             >
@@ -102,13 +101,19 @@ export default {
     }
   },
   methods: {
-    login () {
+    async login () {
       this.loading = true
-      setTimeout(() => {
-        this.$store.dispatch('login')
-        this.$router.replace('/')
-        this.loading = false
-      }, 1500)
+      const params = { auth: { email: this.email, password: this.password } }
+      await this.$axios.$post('/api/v1/user_token', params)
+        .then(response => this.authSuccessful(response))
+        .catch(error => this.authFailure(error))
+      this.loading = false
+    },
+    async authSuccessful (response) {
+      await this.$auth.login(response)
+    },
+    authFailure ({ response }) {
+      console.log(response)
     }
   }
 

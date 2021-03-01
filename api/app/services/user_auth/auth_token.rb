@@ -17,6 +17,10 @@ module UserAuth
       end
     end
 
+    # subjectからユーザーを検索する
+    def entity_for_user
+      User.find @payload["sub"]
+    end
 
     # token_lifetimeの日本語変換を返す
     # @example

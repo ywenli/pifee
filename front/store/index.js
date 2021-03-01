@@ -1,5 +1,8 @@
 export const state = () => ({
-  loggedIn: false
+  loggedIn: false,
+  current: {
+    user: null
+  }
 })
 
 export const getters = {}
@@ -7,11 +10,17 @@ export const getters = {}
 export const mutations = {
   setLoggedIn (state, payload) {
     state.loggedIn = payload
+  },
+  setCurrentUser (state, payload) {
+    state.current.user = payload
   }
 }
 
 export const actions = {
   login ({ commit }) {
     commit('setLoggedIn', true)
+  },
+  getCurrentUser ({ commit }, user) {
+    commit('setCurrentUser', user)
   }
 }

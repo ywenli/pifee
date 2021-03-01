@@ -15,6 +15,21 @@ class User < ApplicationRecord
                         },
                         allow_nil: true
 
+  ## methods
+  # class method #######################
+  class << self
+    # emailからアクティブなユーザーを返す
+    def find_activated(email)
+      find_by(email: email, activated: true)
+    end
+  end
+  # class method end ###################
+
+  # 自分以外の同じemailのアクティブなユーザーがいる場合にtrueを返す
+  def email_activated?
+    users = User.where.not(id: id)
+    users.find_activated(email).present?
+  end
   # 共通のJSONレスポンス
   def my_json
     as_json(only: [:id, :name, :email, :created_at])
