@@ -1,3 +1,5 @@
+// Doc: https://www.npmjs.com/package/crypto-js
+const cryptoJs = require('crypto-js')
 const storage = window.localStorage
 const keys = { exp: 'exp' }
 
@@ -5,11 +7,30 @@ class Authentication {
   constructor (context) {
     this.store = context.store
     this.$axios = context.$axios
+    this.error = context.error
+    this.$config = context.$config
+  }
+
+  // 有効期限を暗号化
+  encrypt (exp) {
+    // 数字は暗号化時にエラーとなるので文字列に変換
+    const expire = String(exp * 1000)
+    return cryptoJs.AES.encrypt(expire, this.$config.cryptoKey).toString()
+  }
+
+  // 有効期限を複合化
+  decrypt (exp) {
+    try {
+      const bytes = cryptoJs.AES.decrypt(exp, this.$config.cryptoKey)
+      return bytes.toString(cryptoJs.enc.Utf8) || this.removeStorage()
+    } catch (e) {
+      return this.removeStorage()
+    }
   }
 
   // storageに有効期限を保存
   setStorage (exp) {
-    storage.setItem(keys.exp, exp * 1000)
+    storage.setItem(keys.exp, this.encrypt(exp))
   }
 
   // storageを削除
@@ -21,7 +42,8 @@ class Authentication {
 
   // storageの有効期限を複合して返す
   getExpire () {
-    return storage.getItem(keys.exp)
+    const expire = storage.getItem(keys.exp)
+    return expire ? this.decrypt(expire) : null
   }
 
   // 有効期限内の場合はtrueを返す
@@ -60,6 +82,6 @@ class Authentication {
 }
 
 // クラス内でVuexと$axiosが扱えるようにする
-export default ({ store, $axios }, inject) => {
-  inject('auth', new Authentication({ store, $axios }))
+export default ({ store, $axios, error, $config }, inject) => {
+  inject('auth', new Authentication({ store, $axios, error, $config }))
 }

@@ -90,8 +90,11 @@ export default {
       'vee-validate/dist/rules'
     ]
   },
+  // public ENV
+  // Doc: https://nuxtjs.org/guide/runtime-config/
   publicRuntimeConfig: {
     // アプリ名を環境変数で指定
-    appName: process.env.APP_NAME
+    appName: process.env.APP_NAME,
+    cryptoKey: process.env.CRYPTO_KEY
   }
 }
