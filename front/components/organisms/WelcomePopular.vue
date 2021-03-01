@@ -1,9 +1,11 @@
 <template>
   <v-container class='popular__container'>
     <v-row>
-      <p class='popular__title display-1 font-weight-bold'>
-        Popular
-      </p>
+      <v-col>
+        <p class='popular__title display-1 font-weight-bold'>
+          Popular
+        </p>
+      </v-col>
     </v-row>
     <v-row>
       <v-col
