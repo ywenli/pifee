@@ -8,8 +8,8 @@
 export default {
   components: {
   },
-  layout ({ store }) {
-    return store.state.loggedIn ? 'default' : 'welcome'
+  layout ({ $auth }) {
+    return $auth.loggedIn ? 'default' : 'welcome'
   }
 }
 </script>
