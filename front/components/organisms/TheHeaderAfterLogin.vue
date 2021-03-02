@@ -62,7 +62,12 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>
-              <nuxt-link>ログアウト</nuxt-link>
+              <nuxt-link
+                to='logout'
+                class='link__logout'
+              >
+                ログアウト
+              </nuxt-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -86,6 +91,9 @@ export default {
 
 <style>
 .app-title-link {
+  text-decoration: none;
+}
+.link__logout {
   text-decoration: none;
 }
 </style>
