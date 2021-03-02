@@ -12,6 +12,7 @@
 import TheHeaderBeforeLogin from '../components/organisms/TheHeaderBeforeLogin.vue'
 import TheFooter from '../components/organisms/TheFooter.vue'
 export default {
-  components: { TheHeaderBeforeLogin, TheFooter }
+  components: { TheHeaderBeforeLogin, TheFooter },
+  middleware: 'redirectLoggedInUser'
 }
 </script>
