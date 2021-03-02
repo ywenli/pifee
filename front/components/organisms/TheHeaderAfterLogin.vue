@@ -16,7 +16,6 @@
     <v-spacer />
 
     <v-menu
-      v-if='loggedIn'
       app
       offset-x
       offset-y
@@ -63,7 +62,7 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>
-              ログアウト
+              <nuxt-link>ログアウト</nuxt-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
