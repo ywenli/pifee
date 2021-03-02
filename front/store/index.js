@@ -1,26 +1,30 @@
 export const state = () => ({
-  loggedIn: false,
   current: {
     user: null
+  },
+  rememberRoute: {
+    name: 'index',
+    params: {}
   }
 })
 
 export const getters = {}
 
 export const mutations = {
-  setLoggedIn (state, payload) {
-    state.loggedIn = payload
-  },
   setCurrentUser (state, payload) {
     state.current.user = payload
+  },
+  setRememberRoute (state, payload) {
+    state.rememberRoute = payload
   }
 }
 
 export const actions = {
-  login ({ commit }) {
-    commit('setLoggedIn', true)
-  },
   getCurrentUser ({ commit }, user) {
     commit('setCurrentUser', user)
+  },
+  getRememberRoute ({ commit }, route) {
+    route = route || { name: 'index', params: {} }
+    commit('setRememberRoute', { name: route.name, params: route.params })
   }
 }

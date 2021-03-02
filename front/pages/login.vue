@@ -91,6 +91,7 @@ export default {
     BaseTextField,
     BaseButton
   },
+  layout: 'beforeLogin',
   data () {
     return {
       email: '',
@@ -109,8 +110,9 @@ export default {
         .catch(error => this.authFailure(error))
       this.loading = false
     },
-    async authSuccessful (response) {
-      await this.$auth.login(response)
+    authSuccessful (response) {
+      this.$auth.login(response)
+      this.$router.push(this.$store.state.rememberRoute)
     },
     authFailure ({ response }) {
       console.log(response)

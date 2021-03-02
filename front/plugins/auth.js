@@ -79,6 +79,12 @@ class Authentication {
     this.removeStorage()
     this.store.dispatch('getCurrentUser', null)
   }
+
+  // 認証エラー処理
+  unauthError () {
+    this.removeStorage()
+    throw this.error({ statusCode: 401, message: 'Unauthorized' })
+  }
 }
 
 // クラス内でVuexと$axiosが扱えるようにする

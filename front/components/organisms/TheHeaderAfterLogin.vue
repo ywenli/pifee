@@ -16,7 +16,6 @@
     <v-spacer />
 
     <v-menu
-      v-if='loggedIn'
       app
       offset-x
       offset-y
@@ -53,7 +52,12 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>
-              アカウント設定
+              <nuxt-link
+                to='/account/settings'
+                class='link__settings'
+              >
+                アカウント設定
+              </nuxt-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -63,7 +67,12 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>
-              ログアウト
+              <nuxt-link
+                to='/logout'
+                class='link__logout'
+              >
+                ログアウト
+              </nuxt-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -87,6 +96,12 @@ export default {
 
 <style>
 .app-title-link {
+  text-decoration: none;
+}
+.link__logout {
+  text-decoration: none;
+}
+.link__settings {
   text-decoration: none;
 }
 </style>
