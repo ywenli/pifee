@@ -52,7 +52,12 @@
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>
-              アカウント設定
+              <nuxt-link
+                to='/account/settings'
+                class='link__settings'
+              >
+                アカウント設定
+              </nuxt-link>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -63,7 +68,7 @@
           <v-list-item-content>
             <v-list-item-title>
               <nuxt-link
-                to='logout'
+                to='/logout'
                 class='link__logout'
               >
                 ログアウト
@@ -94,6 +99,9 @@ export default {
   text-decoration: none;
 }
 .link__logout {
+  text-decoration: none;
+}
+.link__settings {
   text-decoration: none;
 }
 </style>
