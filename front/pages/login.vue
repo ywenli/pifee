@@ -4,6 +4,7 @@
       align='center'
       justify='center'
     >
+      <BaseToaster />
       <v-col
         cols='12'
         class='my-8 text-center'
@@ -86,10 +87,12 @@
 <script>
 import BaseTextField from '../components/atoms/BaseTextField.vue'
 import BaseButton from '../components/atoms/BaseButton.vue'
+import BaseToaster from '../components/atoms/BaseToaster.vue'
 export default {
   components: {
     BaseTextField,
-    BaseButton
+    BaseButton,
+    BaseToaster
   },
   layout: 'beforeLogin',
   data () {
@@ -115,7 +118,9 @@ export default {
       this.$router.push(this.$store.state.rememberRoute)
     },
     authFailure ({ response }) {
-      console.log(response)
+      if (response.status === 404) {
+        this.$store.dispatch('getToast', { msg: 'ユーザーが見つかりません' })
+      }
     }
   }
 
