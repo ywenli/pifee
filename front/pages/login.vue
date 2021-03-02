@@ -91,6 +91,7 @@ export default {
     BaseTextField,
     BaseButton
   },
+  layout: 'beforeLogin',
   data () {
     return {
       email: '',
