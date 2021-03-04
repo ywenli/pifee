@@ -16,7 +16,7 @@
         </BaseButton>
         <BaseButton
           class="button__about"
-          to="#"
+          to="/about"
           color="grey lighten-5"
         >
           About Pifee
