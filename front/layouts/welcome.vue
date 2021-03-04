@@ -9,6 +9,7 @@
         <WelcomeJoin />
       </v-container>
     </v-main>
+    <TheFooter />
   </v-app>
 </template>
 
@@ -18,13 +19,15 @@ import WelcomeAbout from '@/components/organisms/WelcomeAbout.vue'
 import WelcomePopular from '@/components/organisms/WelcomePopular.vue'
 import WelcomeCategory from '@/components/organisms/WelcomeCategory.vue'
 import WelcomeJoin from '@/components/organisms/WelcomeJoin.vue'
+import TheFooter from '../components/organisms/TheFooter.vue'
 export default {
   components: {
     TheHeaderBeforeLogin,
     WelcomeAbout,
     WelcomePopular,
     WelcomeCategory,
-    WelcomeJoin
+    WelcomeJoin,
+    TheFooter
   }
 }
 </script>
