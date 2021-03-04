@@ -12,7 +12,7 @@
         </div>
         <BaseButton
           class="join__button__login"
-          to="#"
+          to="/signup"
           color="primary"
         >
           はじめる
