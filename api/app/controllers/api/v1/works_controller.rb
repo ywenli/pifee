@@ -1,4 +1,15 @@
 class Api::V1::WorksController < ApplicationController
+
+  def index
+    @work = Work.find(params[:id])
+    render json: @work
+  end
+
+  def show
+    @work = Work.find(params[:id])
+    render json: @work
+  end
+
   def create
     @user = User.find(params[:user_id])
     @work = @user.works.build(work_params)
