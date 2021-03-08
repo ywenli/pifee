@@ -3,7 +3,6 @@
     class="BaseButton"
     :color="color"
     rounded
-    large
     :to="to"
     @click="click"
   >
