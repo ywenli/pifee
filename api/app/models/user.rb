@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :works, dependent: :destroy
   include UserAuth::Tokenizable
   # gem bcrypt
   has_secure_password
