@@ -17,11 +17,11 @@
       </v-col>
     </v-row>
     <table
-      v-if="searchResultAll !== null"
+      v-if="searchResults !== null"
     >
-      <tr v-for="searchResultAll in filteredResults" :key="searchResultAll.id">
-        <td v-text="searchResultAll.title" />
-        <td v-text="searchResultAll.body" />
+      <tr v-for="filteredResults in filter" :key="filteredResults.id">
+        <td v-text="filteredResults.title" />
+        <td v-text="filteredResults.body" />
       </tr>
     </table>
     <div v-else>
@@ -35,25 +35,25 @@ export default {
   data () {
     return {
       searchWord: '',
-      searchResultAll: []
+      searchResults: []
     }
   },
   computed: {
-    filteredResults () {
-      const searchResultAll = []
-      for (const i in this.searchResultAll) {
-        const searchResult = this.searchResultAll[i]
+    filter () {
+      const filteredResults = []
+      for (const i in this.searchResults) {
+        const searchResult = this.searchResults[i]
         if (searchResult.title.includes(this.searchWord)) {
-          searchResultAll.push(searchResult)
+          filteredResults.push(searchResult)
         }
       }
-      return searchResultAll
+      return filteredResults
     }
   },
   mounted () {
     this.$axios.get('/api/v1/works')
       .then((res) => {
-        this.searchResultAll = res.data
+        this.searchResults = res.data
       })
   }
 }
