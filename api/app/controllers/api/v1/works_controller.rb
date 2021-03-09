@@ -1,7 +1,7 @@
 class Api::V1::WorksController < ApplicationController
 
   def index
-    @work = Work.find(params[:id])
+    @work = Work.all
     render json: @work
   end
 
