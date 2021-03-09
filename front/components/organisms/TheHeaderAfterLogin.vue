@@ -14,7 +14,24 @@
       </nuxt-link>
     </v-appbar-title>
     <v-spacer />
-
+    <v-btn
+      icon
+      to="/search"
+      nuxt
+      v-on='on'
+    >
+      <v-icon>
+        mdi-magnify
+      </v-icon>
+    </v-btn>
+    <BaseButton
+      color='primary'
+      to="/account/works/new"
+      small
+      nuxt
+    >
+      New work
+    </BaseButton>
     <v-menu
       app
       offset-x
@@ -84,7 +101,7 @@
 <script>
 import BaseButton from '../atoms/BaseButton.vue'
 export default {
-  components: { },
+  components: { BaseButton },
   data ({ $config: { appName } }) {
     return {
       appName,
