@@ -16,17 +16,41 @@
         />
       </v-col>
     </v-row>
-    <table
-      v-if="searchResults !== null"
-    >
-      <tr v-for="filteredResults in filter" :key="filteredResults.id">
-        <td v-text="filteredResults.title" />
-        <td v-text="filteredResults.body" />
-      </tr>
-    </table>
-    <div v-else>
-      {{ searchWord }}の検索結果はありません
-    </div>
+
+    <v-row dense>
+      <v-col
+        v-for="filteredResults in filter"
+        :key="filteredResults.id"
+        cols="12"
+        sm="6"
+        lg="4"
+      >
+        <v-card
+          flat
+          :to='`/account/works/${filteredResults.id}`'
+        >
+          <div class="d-flex flex-no-wrap justify-space-between">
+            <div>
+              <v-card-title
+                class="headline"
+                v-text="filteredResults.title"
+              />
+              <!-- TODO: ユーザー名とアイコンを表示する -->
+              <v-card-subtitle v-text="filteredResults.user_id" />
+            </div>
+
+            <v-avatar
+              class="ma-3"
+              size="125"
+              tile
+            >
+              <!-- TODO: workの画像を取得する -->
+              <v-img :src='"https://cdn.vuetifyjs.com/images/cards/foster.jpg"' />
+            </v-avatar>
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
