@@ -1,21 +1,28 @@
 <template>
   <v-container>
-    <v-row justify='center'>
-      <v-form>
-        <ValidationObserver ref="obs" v-slot="ObserverProps">
-          <div class="work__create--box">
-            <BaseTextField
-              v-model="title"
-              label="タイトル"
-              rules="max:80|required"
-            />
-            <BaseMarkdown
-              v-model="body"
-            />
-          </div>
-        </ValidationObserver>
-      </v-form>
-    </v-row>
+    <v-form>
+      <ValidationObserver ref="obs" v-slot="ObserverProps">
+        <div class="work__create--box">
+          <v-row dense>
+            <v-col>
+              <BaseTextField
+                v-model="title"
+                label="タイトル"
+                rules="max:80|required"
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <BaseMarkdown
+                v-model="body"
+              />
+            </v-col>
+          </v-row>
+        </div>
+      </ValidationObserver>
+    </v-form>
+
     <v-row justify='center'>
       <v-spacer />
       <div class="my-auto mx-3">
