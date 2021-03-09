@@ -28,6 +28,6 @@ class Api::V1::WorksController < ApplicationController
   private
 
     def work_params
-      params.require(:work).permit(:title, :body, :is_public)
+      params.require(:work).permit(:title, :body, :is_public, :tag_list)
     end
 end
