@@ -14,6 +14,16 @@
       </nuxt-link>
     </v-appbar-title>
     <v-spacer />
+    <v-btn
+      icon
+      to="/search"
+      nuxt
+      v-on='on'
+    >
+      <v-icon>
+        mdi-magnify
+      </v-icon>
+    </v-btn>
     <BaseButton
       color='primary'
       to="/account/works/new"
