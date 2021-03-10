@@ -8,6 +8,7 @@ module UserAuth
     # クッキーを削除する
     def delete_cookie
       return if cookies[token_access_key].blank?
+
       cookies.delete(token_access_key)
     end
 
@@ -39,6 +40,7 @@ module UserAuth
       # トークンのユーザーを返す
       def current_user
         return if token.blank?
+
         @_current_user ||= fetch_entity_from_token
       end
 

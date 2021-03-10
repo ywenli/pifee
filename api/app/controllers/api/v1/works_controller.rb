@@ -1,5 +1,4 @@
 class Api::V1::WorksController < ApplicationController
-
   def index
     @work = Work.preload(:tags)
     render json: @work

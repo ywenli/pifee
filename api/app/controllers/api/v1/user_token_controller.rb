@@ -19,7 +19,6 @@ class Api::V1::UserTokenController < ApplicationController
     head(:ok)
   end
 
-
   private
 
     # entityが存在しない、entityのパスワードが一致しない場合に404エラーを返す
@@ -59,6 +58,4 @@ class Api::V1::UserTokenController < ApplicationController
         http_only: true
       }
     end
-
-
 end
