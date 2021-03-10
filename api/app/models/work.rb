@@ -1,4 +1,4 @@
 class Work < ApplicationRecord
   belongs_to :user
-  acts_as_taggable_on
+  acts_as_taggable_on :tags
 end
