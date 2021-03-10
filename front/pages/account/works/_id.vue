@@ -18,6 +18,14 @@
         </div>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <BaseTagDisplay
+          v-model="tag_list"
+        />
+      </v-col>
+    </v-row>
+
     <v-row justify='center'>
       <BaseMarkdownPreview
         v-model="body"
@@ -28,16 +36,21 @@
 
 <script>
 import BaseMarkdownPreview from '@/components/atoms/BaseMarkdownPreview.vue'
+import BaseTagDisplay from '@/components/atoms/BaseTagDisplay.vue'
 
 export default {
   name: 'WorkPage',
-  components: { BaseMarkdownPreview },
+  components: {
+    BaseMarkdownPreview,
+    BaseTagDisplay
+  },
   data () {
     return {
       user_id: '',
       title: '',
       body: '',
-      created_at: ''
+      created_at: '',
+      tag_list: []
     }
   },
   mounted () {
@@ -48,6 +61,7 @@ export default {
         this.title = res.data.title
         this.body = res.data.body
         this.created_at = res.data.created_at
+        this.tag_list = res.data.tag_list
       })
       .catch((err) => {
         console.log(err)
