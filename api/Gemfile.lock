@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts-as-taggable-on (7.0.0)
+      activerecord (>= 5.0, < 6.2)
     bcrypt (3.1.16)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
@@ -70,10 +72,10 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    ffi (1.14.2)
+    ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    i18n (1.8.8)
+    i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     jwt (2.2.2)
     listen (3.4.1)
@@ -90,10 +92,10 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     msgpack (1.4.2)
     mysql2 (0.5.3)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -179,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 7.0)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
@@ -189,7 +192,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.5)
-  rspec-rails
+  rspec-rails (= 4.0.2)
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)

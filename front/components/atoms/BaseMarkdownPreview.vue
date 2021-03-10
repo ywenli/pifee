@@ -43,7 +43,9 @@ export default {
   width: 100%;
   height: 70vh;
   position: relative;
+    /* FIXME: z-indexが反映されてない */
   z-index: 0;
+    /* FIXME: border:0 が反映されていない */
   border: 0;
   line-height: 1.9rem;
 }

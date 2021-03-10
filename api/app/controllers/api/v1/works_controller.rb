@@ -1,7 +1,7 @@
 class Api::V1::WorksController < ApplicationController
 
   def index
-    @work = Work.all
+    @work = Work.preload(:tags)
     render json: @work
   end
 
@@ -13,6 +13,7 @@ class Api::V1::WorksController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @work = @user.works.build(work_params)
+    @work.tag_list = params[:tag_list]
 
     if @work.save
       render json: @work, status: :created
@@ -28,6 +29,6 @@ class Api::V1::WorksController < ApplicationController
   private
 
     def work_params
-      params.require(:work).permit(:title, :body, :is_public)
+      params.require(:work).permit(:title, :body, :user_id, :is_public, :tag_list)
     end
 end
