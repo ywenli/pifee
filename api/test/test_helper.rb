@@ -5,7 +5,7 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   # プロセスが分岐した直後に呼び出し
   parallelize_setup do |worker|
-    load "#{Rails.root}/db/seeds.rb"
+    load Rails.root.join('db/seeds.rb')
   end
 
   # Run tests in parallel with specified workers

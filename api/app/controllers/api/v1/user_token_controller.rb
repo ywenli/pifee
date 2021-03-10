@@ -53,7 +53,7 @@ class Api::V1::UserTokenController < ApplicationController
     def cookie_token
       {
         value: auth.token,
-        expires: Time.at(auth.payload[:exp]),
+        expires: Time.zone.at(auth.payload[:exp]),
         # https通信飲みアクセスできるCookie: 本番環境のみ有効
         secure: Rails.env.production?,
         http_only: true

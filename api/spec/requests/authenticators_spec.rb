@@ -4,6 +4,7 @@ RSpec.describe "Authenticators", type: :request do
   xdescribe "JWTのデコード" do
     let(:user) { User.find_by(activated: true) }
     let(:token) { @user.to_token }
+
     payload = UserAuth::AuthToken.new(token: @token).payload
     subject = payload["sub"]
     exp = payload["exp"]
@@ -12,6 +13,7 @@ RSpec.describe "Authenticators", type: :request do
     it "subjectは一致するか" do
       expect(user.id).to eq subject
     end
+
     it "expirationの値はあるか" do
       expect(exp).not_to be_empty
     end
