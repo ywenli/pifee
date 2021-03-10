@@ -27,7 +27,7 @@ module UserAuth
     # "2.hours".lifetime_text #=> {
     #   time = 2, period = hour = 時間 }
     def lifetime_text
-      time, period = @lifetime.inspect.sub(/s\z/,"").split
+      time, period = @lifetime.inspect.delete_suffix('s').split
       time + I18n.t("datetime.periods.#{period}", default: "")
     end
 

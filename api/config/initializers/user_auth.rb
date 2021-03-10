@@ -1,7 +1,7 @@
 module UserAuth
   # tokenの有効期限: 2週間
   mattr_accessor :token_lifetime
-  self.token_lifetime = 2.week
+  self.token_lifetime = 2.weeks
   # tokenの発行先（受信者）を指定
   mattr_accessor :token_audience
   self.token_audience = -> {

@@ -7,7 +7,6 @@ RSpec.describe User, type: :model do
       user.save
       required_msg = ['名前を入力してください']
       expect(required_msg).to eq user.errors.full_messages
-
     end
   end
 end
