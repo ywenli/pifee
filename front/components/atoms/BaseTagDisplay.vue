@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- TODO: 各タグへのリンクを追加 -->
     <v-chip
       v-for="tag in value"
       :key="tag"
