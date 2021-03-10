@@ -21,7 +21,7 @@
     <v-row>
       <v-col>
         <BaseTagDisplay
-          v-model="tag_list"
+          v-model="tags"
         />
       </v-col>
     </v-row>
@@ -50,7 +50,7 @@ export default {
       title: '',
       body: '',
       created_at: '',
-      tag_list: []
+      tags: []
     }
   },
   mounted () {
@@ -61,7 +61,7 @@ export default {
         this.title = res.data.title
         this.body = res.data.body
         this.created_at = res.data.created_at
-        this.tag_list = res.data.tag_list
+        this.tags = res.data.tag_list
       })
       .catch((err) => {
         console.log(err)

@@ -1,17 +1,13 @@
 <template>
-  <v-combobox
-    v-model="inputValue"
-    label="タグ"
-    append-icon
-    chips
-    class="tag-input"
-    hide-selected
-    multiple
-    max-width="auto"
-    readonly
-    solo
-    flat
-  />
+  <div>
+    <v-chip
+      v-for="tag in value"
+      :key="tag"
+      class="mr-1"
+    >
+      {{ tag }}
+    </v-chip>
+  </div>
 </template>
 
 <script>
