@@ -30,30 +30,7 @@
         sm="3"
         lg="2"
       >
-        <v-card
-          class="ma-auto"
-          flat
-          outlined
-          to='#'
-          nuxt
-        >
-          <v-row no-gutters justify='center'>
-            <v-card-subtitle
-              class="pt-３ pb-0"
-            >
-              言語
-            </v-card-subtitle>
-          </v-row>
-          <v-row no-gutters justify='center' class='mt-0'>
-            <v-avatar
-              class="my-3"
-              size="48"
-              tile
-            >
-              <img src="https://cdn.vuetifyjs.com/images/cards/foster.jpg" alt="alt">
-            </v-avatar>
-          </v-row>
-        </v-card>
+        <BaseCardForCategory />
       </v-col>
     </v-row>
     <v-row dense>
@@ -94,7 +71,9 @@
 </template>
 
 <script>
+import BaseCardForCategory from '@/components/organisms/BaseCardForCategory.vue'
 export default {
+  components: { BaseCardForCategory },
   data () {
     return {
       searchWord: '',
