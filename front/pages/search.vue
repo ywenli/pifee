@@ -32,6 +32,7 @@
       >
         <BaseCardForCategory
           v-model="tags"
+          :to='`/category/${tag}`'
         >
           {{ tag }}
         </BaseCardForCategory>

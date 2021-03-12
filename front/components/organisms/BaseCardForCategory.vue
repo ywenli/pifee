@@ -3,7 +3,7 @@
     class="ma-auto"
     flat
     outlined
-    :to='to'
+    :to="to"
     nuxt
   >
     <v-row no-gutters justify='center'>
@@ -31,6 +31,10 @@ export default {
     tags: {
       type: Array,
       default: () => []
+    },
+    to: {
+      type: String,
+      default: ''
     }
   }
 }
