@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         delete :destroy, on: :collection
       end
       resources :works
-      resources :tags, only: [:index, :show]
+      resources :tags, only: [:index, :show], param: :name
     end
   end
 end
