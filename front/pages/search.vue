@@ -24,13 +24,17 @@
     </v-row>
     <v-row>
       <v-col
-        v-for="item in 14"
-        :key="item"
+        v-for="tag in tags"
+        :key="tag"
         cols="4"
         sm="3"
         lg="2"
       >
-        <BaseCardForCategory />
+        <BaseCardForCategory
+          v-model="tags"
+        >
+          {{ tag }}
+        </BaseCardForCategory>
       </v-col>
     </v-row>
     <v-row dense>
@@ -77,7 +81,8 @@ export default {
   data () {
     return {
       searchWord: '',
-      searchResults: []
+      searchResults: [],
+      tags: []
     }
   },
   computed: {
@@ -96,6 +101,10 @@ export default {
     this.$axios.get('/api/v1/works')
       .then((res) => {
         this.searchResults = res.data
+      })
+    this.$axios.get('/api/v1/tags')
+      .then((res) => {
+        this.tags = [...res.data].map(value => value.name)
       })
   }
 }

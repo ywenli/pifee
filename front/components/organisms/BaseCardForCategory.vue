@@ -3,14 +3,14 @@
     class="ma-auto"
     flat
     outlined
-    to='#'
+    :to='to'
     nuxt
   >
     <v-row no-gutters justify='center'>
       <v-card-subtitle
         class="pt-３ pb-0"
       >
-        言語
+        <slot />
       </v-card-subtitle>
     </v-row>
     <v-row no-gutters justify='center' class='mt-0'>
@@ -27,7 +27,12 @@
 
 <script>
 export default {
-
+  props: {
+    tags: {
+      type: Array,
+      default: () => []
+    }
+  }
 }
 </script>
 
