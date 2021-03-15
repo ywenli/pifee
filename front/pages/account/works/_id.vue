@@ -19,13 +19,17 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
+      <v-col
+        cols="11"
+      >
         <BaseTagDisplay
           v-model="tags"
         />
       </v-col>
       <v-spacer />
-      <v-col>
+      <v-col
+        cols="1"
+      >
         <BaseLikeButton />
       </v-col>
     </v-row>
