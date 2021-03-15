@@ -24,6 +24,10 @@
           v-model="tags"
         />
       </v-col>
+      <v-spacer />
+      <v-col>
+        <BaseLikeButton />
+      </v-col>
     </v-row>
 
     <v-row justify='center'>
@@ -37,12 +41,14 @@
 <script>
 import BaseMarkdownPreview from '@/components/atoms/BaseMarkdownPreview.vue'
 import BaseTagDisplay from '@/components/atoms/BaseTagDisplay.vue'
+import BaseLikeButton from '@/components/atoms/BaseLikeButton.vue'
 
 export default {
   name: 'WorkPage',
   components: {
     BaseMarkdownPreview,
-    BaseTagDisplay
+    BaseTagDisplay,
+    BaseLikeButton
   },
   data () {
     return {
