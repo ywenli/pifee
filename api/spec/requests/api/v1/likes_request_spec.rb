@@ -3,26 +3,19 @@ require 'rails_helper'
 RSpec.describe "Api::V1::Likes", type: :request do
   describe "GET /index" do
     it "returns http success" do
-      get "/api/v1/likes/index"
+      get "/api/v1/likes"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
-      get "/api/v1/likes/show"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /create" do
+  xdescribe "GET /create" do
     it "returns http success" do
       get "/api/v1/likes/create"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /destroy" do
+  xdescribe "GET /destroy" do
     it "returns http success" do
       get "/api/v1/likes/destroy"
       expect(response).to have_http_status(:success)
