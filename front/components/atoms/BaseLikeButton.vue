@@ -3,10 +3,10 @@
     <v-btn
       v-if="isLiked"
       icon
-      fab
       small
-      plain
+      :ripple="false"
       color="red lighten-2"
+      class="button__like"
       @click="deleteLike()"
     >
       <v-icon>mdi-heart</v-icon>
@@ -15,8 +15,9 @@
     <v-btn
       v-else
       icon
-      fab
       small
+      :ripple="false"
+      class="button__unlike"
       @click="registerLike()"
     >
       <v-icon>mdi-heart-outline</v-icon>
@@ -95,6 +96,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='scss'>
+  .button__like::before {
+    background-color: transparent !important;
+  }
+  .button__unlike::before {
+    background-color: transparent !important;
+  }
 </style>
