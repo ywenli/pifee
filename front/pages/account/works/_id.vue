@@ -19,10 +19,18 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
+      <v-col
+        cols="11"
+      >
         <BaseTagDisplay
           v-model="tags"
         />
+      </v-col>
+      <v-spacer />
+      <v-col
+        cols="1"
+      >
+        <BaseLikeButton />
       </v-col>
     </v-row>
 
@@ -37,12 +45,14 @@
 <script>
 import BaseMarkdownPreview from '@/components/atoms/BaseMarkdownPreview.vue'
 import BaseTagDisplay from '@/components/atoms/BaseTagDisplay.vue'
+import BaseLikeButton from '@/components/atoms/BaseLikeButton.vue'
 
 export default {
   name: 'WorkPage',
   components: {
     BaseMarkdownPreview,
-    BaseTagDisplay
+    BaseTagDisplay,
+    BaseLikeButton
   },
   data () {
     return {

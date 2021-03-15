@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
       resources :works
       resources :tags, only: [:index, :show], param: :name
+      resources :likes, only: [:index, :create, :destroy]
     end
   end
 end
