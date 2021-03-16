@@ -89,7 +89,7 @@ export default {
           tag_list: this.tag_list
         })
         .then((res) => {
-          this.$router.push(`/account/works/${res.data.id}`)
+          this.$router.push(`/_username/works/${res.data.id}`)
         })
     }
   }

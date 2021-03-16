@@ -17,7 +17,7 @@
         lg="4"
       >
         <BaseCardForWork
-          :to='`/account/works/${work.id}`'
+          :to='`/_username/works/${work.id}`'
         >
           <template #title>
             {{ work.title }}
