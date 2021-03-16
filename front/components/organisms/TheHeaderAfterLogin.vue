@@ -26,7 +26,7 @@
     </v-btn>
     <BaseButton
       color='primary'
-      to="/account/works/new"
+      :to='`/${$auth.user.name}/works/new`'
       small
       nuxt
     >

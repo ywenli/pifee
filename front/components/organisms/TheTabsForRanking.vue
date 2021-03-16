@@ -31,7 +31,7 @@
               lg="3"
             >
               <BaseCardForWork
-                :to="`/account/works/${work.id}`"
+                :to="`/${work.user_id}/works/${work.id}`"
               >
                 <template #title>
                   {{ work.title }}
@@ -57,7 +57,7 @@
               lg="3"
             >
               <BaseCardForWork
-                :to="`/account/works/${work.id}`"
+                :to="`/${work.user_id}/works/${work.id}`"
               >
                 <template #title>
                   {{ work.title }}
@@ -83,7 +83,7 @@
               lg="3"
             >
               <BaseCardForWork
-                :to="`/account/works/${work.id}`"
+                :to="`/${work.user_id}/works/${work.id}`"
               >
                 <template #title>
                   {{ work.title }}

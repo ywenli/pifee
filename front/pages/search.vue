@@ -48,7 +48,7 @@
       >
         <v-card
           flat
-          :to='`/account/works/${filteredResults.id}`'
+          :to='`/_username/works/${filteredResults.id}`'
         >
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
