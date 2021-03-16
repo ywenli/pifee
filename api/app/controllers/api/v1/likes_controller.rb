@@ -1,5 +1,5 @@
 class Api::V1::LikesController < ApplicationController
-  #before_action :authenticate_user
+  # before_action :authenticate_user
 
   def index
     @like = Like.filter_by_work(params[:work_id]).select(:id, :user_id, :work_id)
