@@ -38,9 +38,10 @@
       offset-y
       max-width='200'
     >
-      <template #activator='{ on }'>
+      <template #activator='{ on, attrs }'>
         <v-btn
           icon
+          v-bind='attrs'
           v-on='on'
         >
           <v-icon>
@@ -48,51 +49,52 @@
           </v-icon>
         </v-btn>
       </template>
-      <v-list dense>
-        <v-subheader>
-          ログイン中のユーザー
-        </v-subheader>
 
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-subtitle>
-              {{ $auth.user.name }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider />
-
-        <v-subheader>
-          アカウント
-        </v-subheader>
-        <v-list-item>
-          <v-list-item-content>
+      <v-list
+        dense
+        class="py-0"
+      >
+        <v-list-item-group color='primary'>
+          <v-list-item>
             <v-list-item-title>
+              <v-icon>mdi-account</v-icon>
+              <nuxt-link
+                :to='`/${$auth.user.name}`'
+                class='text-decoration-none black--text'
+              >
+                {{ $auth.user.name }}
+              </nuxt-link>
+            </v-list-item-title>
+          </v-list-item>
+
+          <v-divider />
+
+          <v-list-item>
+            <v-list-item-title>
+              <v-icon>mdi-cog</v-icon>
               <nuxt-link
                 to='/account/settings'
-                class='link__settings'
+                class='text-decoration-none black--text'
               >
                 アカウント設定
               </nuxt-link>
             </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+          </v-list-item>
 
-        <v-divider />
+          <v-divider />
 
-        <v-list-item>
-          <v-list-item-content>
+          <v-list-item>
             <v-list-item-title>
+              <v-icon>mdi-logout-variant</v-icon>
               <nuxt-link
                 to='/logout'
-                class='link__logout'
+                class='text-decoration-none black--text'
               >
                 ログアウト
               </nuxt-link>
             </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-menu>
   </v-app-bar>
@@ -112,13 +114,5 @@ export default {
 </script>
 
 <style>
-.app-title-link {
-  text-decoration: none;
-}
-.link__logout {
-  text-decoration: none;
-}
-.link__settings {
-  text-decoration: none;
-}
+
 </style>
