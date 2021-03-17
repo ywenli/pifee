@@ -108,7 +108,7 @@ export default {
     return {
       tab: null,
       items: [
-        'Today', 'Weakly', 'All'
+        'Today', 'Weekly', 'All'
       ],
       ranking_today: [],
       ranking_weekly: [],
