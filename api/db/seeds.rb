@@ -1,5 +1,12 @@
+require 'factory_bot_rails'
+include FactoryBot::Syntax::Methods
+
+FactoryBot.definition_file_paths = [ Rails.root.join('spec', 'factories') ]
+FactoryBot.reload
+
 table_names = %w(
   users
+  works
 )
 
 table_names.each do |table_name|
