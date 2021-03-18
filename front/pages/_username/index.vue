@@ -13,16 +13,9 @@
         </div>
       </v-col>
       <v-col cols="2">
-        <v-btn
-          class="text-none"
-          depressed
-          outlined
-          small
-          color="grey"
-          :to='`/${$auth.user.name}/settings`'
-        >
-          Edit
-        </v-btn>
+        <BaseButtonEdit
+          :to="`/${$auth.user.name}/settings`"
+        />
       </v-col>
     </v-row>
 
@@ -72,9 +65,11 @@
 </template>
 
 <script>
+import BaseButtonEdit from '@/components/atoms/BaseButtonEdit.vue'
 import BaseCardForWork from '@/components/organisms/BaseCardForWork.vue'
 export default {
   components: {
+    BaseButtonEdit,
     BaseCardForWork
   },
   data () {

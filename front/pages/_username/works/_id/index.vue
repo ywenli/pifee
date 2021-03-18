@@ -1,10 +1,18 @@
 <template>
   <v-container>
     <v-row justify='start'>
-      <v-col class="work__title mt-4">
+      <v-col
+        class="work__title mt-4"
+        sm="10"
+      >
         <div class="text-h4 font-weight-bold">
           {{ title }}
         </div>
+      </v-col>
+      <v-col sm="2">
+        <BaseButtonEdit
+          :to="`/${$auth.user.name}/works/${$route.params.id}/edit`"
+        />
       </v-col>
     </v-row>
     <v-row justify='start'>
@@ -43,6 +51,7 @@
 </template>
 
 <script>
+import BaseButtonEdit from '@/components/atoms/BaseButtonEdit.vue'
 import BaseMarkdownPreview from '@/components/atoms/BaseMarkdownPreview.vue'
 import BaseTagDisplay from '@/components/atoms/BaseTagDisplay.vue'
 import BaseLikeButton from '@/components/atoms/BaseLikeButton.vue'
@@ -50,6 +59,7 @@ import BaseLikeButton from '@/components/atoms/BaseLikeButton.vue'
 export default {
   name: 'WorkPage',
   components: {
+    BaseButtonEdit,
     BaseMarkdownPreview,
     BaseTagDisplay,
     BaseLikeButton
