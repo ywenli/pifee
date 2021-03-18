@@ -58,12 +58,25 @@
           <v-list-item>
             <v-list-item-title>
               <v-icon>mdi-account</v-icon>
+              <v-btn
+                :to="`/${$auth.user.name}`"
+                class='text-none text-decoration-none pl-0'
+                depressed
+                text
+                plain
+                nuxt
+                :ripple="false"
+              >
+                {{ $auth.user.name }}
+              </v-btn>
+              <!-- 下のコードだとリンクが正常に遷移するときとしない時があるため、上のコードに変更
               <nuxt-link
                 :to='`/${$auth.user.name}`'
                 class='text-decoration-none black--text'
               >
                 {{ $auth.user.name }}
               </nuxt-link>
+              -->
             </v-list-item-title>
           </v-list-item>
 
@@ -73,8 +86,8 @@
             <v-list-item-title>
               <v-icon>mdi-cog</v-icon>
               <nuxt-link
-                to='/account/settings'
-                class='text-decoration-none black--text'
+                :to="`/${$auth.user.name}/settings`"
+                class='text-decoration-none black--text pl-1'
               >
                 アカウント設定
               </nuxt-link>
@@ -88,7 +101,7 @@
               <v-icon>mdi-logout-variant</v-icon>
               <nuxt-link
                 to='/logout'
-                class='text-decoration-none black--text'
+                class='text-decoration-none black--text pl-1'
               >
                 ログアウト
               </nuxt-link>
