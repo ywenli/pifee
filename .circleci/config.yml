@@ -9,7 +9,7 @@ jobs:
           DB_HOST: 127.0.0.1
       - image: circleci/mysql:5.7.33
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
     working_directory: ~/repo
 
