@@ -25,9 +25,19 @@ class Api::V1::WorksController < ApplicationController
     @work.destroy
   end
 
+  def update
+    @work = Work.find(params[:id])
+    @work.tag_list = params[:tag_list]
+    if @work.update(work_params)
+      render json: @work
+    else
+      render json: @work.errors
+    end
+  end
+
   private
 
     def work_params
-      params.require(:work).permit(:title, :body, :user_id, :is_public, :tag_list)
+      params.require(:work).permit(:title, :body, :is_public, :tag_list)
     end
 end
