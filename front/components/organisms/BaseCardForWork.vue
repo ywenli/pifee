@@ -1,6 +1,8 @@
 <template>
   <v-card
     class='mx-auto'
+    max-width='256'
+    height='100%'
     elevation='1'
     :to='to'
     nuxt
