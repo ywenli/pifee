@@ -5,7 +5,7 @@ services:
     image: mysql:5.7.33
     environment:
       TZ: 'Asia/Tokyo'
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
     volumes:
       - mysql-data:/var/lib/mysql
 
