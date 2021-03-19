@@ -1,16 +1,16 @@
 <template>
-  <no-ssr>
-    <mavon-editor
-      ref="md"
-      v-model="inputValue"
-      class="mavonEditor"
-      language="ja"
-      :toolbars="markdownOption"
-      :boxShadow="false"
-      placeholder="Write in Markdown"
-      @imgAdd="$imgAdd"
-    />
-  </no-ssr>
+  <mavon-editor
+    ref="md"
+    v-model="inputValue"
+    class="mavonEditor"
+    language="ja"
+    :toolbars="markdownOption"
+    :boxShadow="false"
+    :subfield="false"
+    defaultOpen="edit"
+    placeholder="Write in Markdown"
+    @imgAdd="$imgAdd"
+  />
 </template>
 <script>
 export default {
