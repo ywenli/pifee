@@ -1,17 +1,16 @@
 <template>
-  <no-ssr>
-    <mavon-editor
-      ref="md"
-      v-model="inputValue"
-      class="mavonEditor"
-      language="ja"
-      :toolbars="markdownOption"
-      :scrollStyle="false"
-      :boxShadow="false"
-      placeholder="Write in Markdown"
-      @imgAdd="$imgAdd"
-    />
-  </no-ssr>
+  <mavon-editor
+    ref="md"
+    v-model="inputValue"
+    class="mavonEditor"
+    language="ja"
+    :toolbars="markdownOption"
+    :boxShadow="false"
+    :subfield="false"
+    defaultOpen="edit"
+    placeholder="Write in Markdown"
+    @imgAdd="$imgAdd"
+  />
 </template>
 <script>
 export default {
@@ -39,7 +38,7 @@ export default {
         imagelink: true,
         code: true,
         table: true,
-        trash: true
+        preview: true
       }
     }
   },
@@ -73,8 +72,8 @@ export default {
 <style scoped>
 .mavonEditor {
   margin: auto;
-  width: 90vw;
-  height: 70vh;
+  width: 100%;
+  height: 100%;
   position: relative;
   z-index: 0;
 }
