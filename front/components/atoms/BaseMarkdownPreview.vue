@@ -41,7 +41,7 @@ export default {
 .markdown__preview {
   padding: auto 12 auto;
   width: 100%;
-  height: 70vh;
+  height: 100%;
   position: relative;
     /* FIXME: z-indexが反映されてない */
   z-index: 0;

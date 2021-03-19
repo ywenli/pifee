@@ -6,7 +6,6 @@
       class="mavonEditor"
       language="ja"
       :toolbars="markdownOption"
-      :scrollStyle="false"
       :boxShadow="false"
       placeholder="Write in Markdown"
       @imgAdd="$imgAdd"
@@ -73,8 +72,8 @@ export default {
 <style scoped>
 .mavonEditor {
   margin: auto;
-  width: 90vw;
-  height: 70vh;
+  width: 100%;
+  height: 100%;
   position: relative;
   z-index: 0;
 }
