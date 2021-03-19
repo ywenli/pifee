@@ -38,7 +38,8 @@ export default {
         imagelink: true,
         code: true,
         table: true,
-        trash: true
+        trash: true,
+        preview: true
       }
     }
   },
