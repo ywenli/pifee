@@ -7,6 +7,7 @@
         </div>
       </v-col>
     </v-row>
+    {{ works }}
     <v-row>
       <v-col>
         <v-card
@@ -24,7 +25,7 @@
             </v-tab>
             <v-tab>
               <div class="text-none">
-                公開
+                公開中
               </div>
             </v-tab>
             <v-tab>
@@ -42,6 +43,7 @@
                 >
                   <BaseCardForDashboard
                     :to="`/${$route.params.username}/works/${work.id}/edit`"
+                    :isPublic="work.is_public"
                   >
                     <template #title>
                       {{ work.title }}
