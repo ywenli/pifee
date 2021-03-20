@@ -1,1 +1,1 @@
-5.times{ create(:work) }
+5.times{ create(:private) }
