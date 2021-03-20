@@ -25,13 +25,7 @@ export default {
       type: String,
       default: ''
     }
-  },
-  methods: {
-    deleteWork () {
-      this.$axios.delete('`hoge`')
-    }
   }
-
 }
 </script>
 
