@@ -7,7 +7,6 @@
         </div>
       </v-col>
     </v-row>
-    {{ workPublic }}
     <v-row>
       <v-col>
         <v-card
