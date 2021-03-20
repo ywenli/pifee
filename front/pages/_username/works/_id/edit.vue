@@ -30,6 +30,10 @@
       </ValidationObserver>
     </v-form>
     <v-row justify='center'>
+      <!-- TODO: 以下のボタンはヘッダーに表示させたほうがいいかもしれない -->
+      <v-card-actions>
+        <BaseDialog />
+      </v-card-actions>
       <v-spacer />
       <div class="my-auto mx-3">
         <v-switch
@@ -56,12 +60,14 @@ import BaseTextField from '@/components/atoms/BaseTextField.vue'
 import BaseMarkdown from '@/components/atoms/BaseMarkdown.vue'
 import BaseButton from '@/components/atoms/BaseButton.vue'
 import BaseTagInput from '@/components/atoms/BaseTagInput.vue'
+import BaseDialog from '@/components/atoms/BaseDialog.vue'
 export default {
   components: {
     BaseTextField,
     BaseMarkdown,
     BaseButton,
-    BaseTagInput
+    BaseTagInput,
+    BaseDialog
   },
   data () {
     return {
