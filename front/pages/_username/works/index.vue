@@ -7,7 +7,6 @@
         </div>
       </v-col>
     </v-row>
-    {{ works }}
     <v-row>
       <v-col>
         <v-card
@@ -71,18 +70,11 @@ export default {
       works: []
     }
   },
-  created () {
+  mounted () {
     this.$axios.get(`/api/v1/works/?user_id=${this.$auth.user.id}`)
       .then((res) => {
         this.works = res.data
       })
-  },
-  methods: {
-    deleteWork () {
-      // フロントでWorkカードを削除
-
-      // データを削除するリクエストをapiに投げる
-    }
   }
 }
 </script>

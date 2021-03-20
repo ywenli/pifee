@@ -70,7 +70,12 @@ export default {
       })
     },
     deleteWork () {
-      this.$emit('deleteWork')
+      this.$axios.delete(`/api/v1/works/${this.$route.params.id}`)
+        .then(
+          setTimeout(() => {
+            this.$router.push(`/${this.$auth.user.name}/works`)
+          }, 1000)
+        )
     }
   }
 }
