@@ -22,6 +22,7 @@ class Api::V1::WorksController < ApplicationController
   end
 
   def destroy
+    @work = Work.find(params[:id])
     @work.destroy
   end
 
