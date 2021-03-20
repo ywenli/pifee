@@ -84,6 +84,17 @@
 
           <v-list-item>
             <v-list-item-title>
+              <v-icon>mdi-file-edit-outline</v-icon>
+              <nuxt-link
+                :to="`/${$auth.user.name}/works`"
+                class='text-decoration-none black--text pl-1'
+              >
+                作品の管理
+              </nuxt-link>
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>
               <v-icon>mdi-cog</v-icon>
               <nuxt-link
                 :to="`/${$auth.user.name}/settings`"
