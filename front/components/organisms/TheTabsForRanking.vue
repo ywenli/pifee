@@ -19,12 +19,12 @@
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <!-- today: 今日のランキング -->
+      <!-- daily: 1日のランキング -->
       <v-tab-item>
         <v-container>
           <v-row>
             <v-col
-              v-for="work in ranking_today"
+              v-for="work in ranking_daily"
               :key="work.id"
               cols="12"
               sm="4"
@@ -108,16 +108,16 @@ export default {
     return {
       tab: null,
       items: [
-        'Today', 'Weekly', 'All'
+        'Daily', 'Weekly', 'All'
       ],
-      ranking_today: [],
+      ranking_daily: [],
       ranking_weekly: [],
       ranking_all: []
     }
   },
   mounted () {
-    this.$axios.get('/api/v1/likes/today_ranking')
-      .then((res) => { this.ranking_today = res.data })
+    this.$axios.get('/api/v1/likes/daily_ranking')
+      .then((res) => { this.ranking_daily = res.data })
     this.$axios.get('/api/v1/likes/weekly_ranking')
       .then((res) => { this.ranking_weekly = res.data })
     this.$axios.get('/api/v1/likes/all_ranking')

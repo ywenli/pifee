@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <div class="text-h4">
+        <div class="text-h4 font-weight-bold">
           Popular
         </div>
       </v-col>
@@ -14,7 +14,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <div class="text-h4">
+        <div class="text-h4 font-weight-bold">
           Category
         </div>
       </v-col>
