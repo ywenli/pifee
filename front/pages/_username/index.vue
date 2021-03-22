@@ -14,7 +14,7 @@
       </v-col>
       <v-col cols="2">
         <BaseButtonEdit
-          :to="`/${$auth.user.name}/settings`"
+          :to="`/${$auth.user.url}/settings`"
         />
       </v-col>
     </v-row>

@@ -11,7 +11,7 @@
       </v-col>
       <v-col sm="2">
         <BaseButtonEdit
-          :to="`/${$auth.user.name}/works/${$route.params.id}/edit`"
+          :to="`/${$auth.user.url}/works/${$route.params.id}/edit`"
         />
       </v-col>
     </v-row>

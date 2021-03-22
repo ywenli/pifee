@@ -26,7 +26,7 @@
     </v-btn>
     <BaseButton
       color='primary'
-      :to='`/${$auth.user.name}/works/new`'
+      :to='`/${$auth.user.url}/works/new`'
       small
       nuxt
     >
@@ -59,7 +59,7 @@
             <v-list-item-title>
               <v-icon>mdi-account</v-icon>
               <v-btn
-                :to="`/${$auth.user.name}`"
+                :to="`/${$auth.user.url}`"
                 class='text-none text-decoration-none pl-0'
                 depressed
                 text
@@ -67,14 +67,16 @@
                 nuxt
                 :ripple="false"
               >
+                <!-- TODO: urlも表示 -->
                 {{ $auth.user.name }}
+                {{ $auth.user.url }}
               </v-btn>
               <!-- 下のコードだとリンクが正常に遷移するときとしない時があるため、上のコードに変更
               <nuxt-link
-                :to='`/${$auth.user.name}`'
+                :to='`/${$auth.user.url}`'
                 class='text-decoration-none black--text'
               >
-                {{ $auth.user.name }}
+                {{ $auth.user.url }}
               </nuxt-link>
               -->
             </v-list-item-title>
@@ -86,7 +88,7 @@
             <v-list-item-title>
               <v-icon>mdi-file-edit-outline</v-icon>
               <nuxt-link
-                :to="`/${$auth.user.name}/works`"
+                :to="`/${$auth.user.url}/works`"
                 class='text-decoration-none black--text pl-1'
               >
                 作品の管理
@@ -97,7 +99,7 @@
             <v-list-item-title>
               <v-icon>mdi-cog</v-icon>
               <nuxt-link
-                :to="`/${$auth.user.name}/settings`"
+                :to="`/${$auth.user.url}/settings`"
                 class='text-decoration-none black--text pl-1'
               >
                 アカウント設定
