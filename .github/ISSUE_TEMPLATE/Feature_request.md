@@ -1,7 +1,7 @@
 ---
-name: 不具合報告
+name: バグ報告
 about: Create a report to help us improve. あくまでテンプレートなので必ずしもすべての項目を埋めなくてよい
-title: ''
+title: bug: 
 labels: bug
 assignees: ''
 
