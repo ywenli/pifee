@@ -1,19 +1,15 @@
 ---
-name: バグ報告
-about: Create a report to help us improve. あくまでテンプレートなので必ずしもすべての項目を埋めなくてよい
-title: bug: 
-labels: bug
+name: 機能要望
+about: Suggest an idea for this project. あくまでテンプレートなので必ずしもすべての項目を埋めなくてよい
+title: feat: 
+labels: enhancement
 assignees: ''
 
 ---
 
 ## 概要
 
-## スクリーンショット
+## ユーザーから見た挙動
 
-## 再現手順
-1. 
-
-## 原因
-
-## 修正案
+## タスク
+- [ ] 
