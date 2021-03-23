@@ -36,7 +36,7 @@
       app
       offset-x
       offset-y
-      max-width='200'
+      max-width='250'
     >
       <template #activator='{ on, attrs }'>
         <v-btn
@@ -66,12 +66,16 @@
                 plain
                 nuxt
                 :ripple="false"
+                max-height="100"
               >
-                <!-- TODO: urlも表示 -->
-                {{ $auth.user.name }}
-                {{ $auth.user.url }}
+                <div>
+                  {{ $auth.user.name }}
+                </div><br>
+                <div class="grey--text">
+                  @{{ $auth.user.url }}
+                </div>
               </v-btn>
-              <!-- 下のコードだとリンクが正常に遷移するときとしない時があるため、上のコードに変更
+            <!-- 下のコードだとリンクが正常に遷移するときとしない時があるため、上のコードに変更
               <nuxt-link
                 :to='`/${$auth.user.url}`'
                 class='text-decoration-none black--text'

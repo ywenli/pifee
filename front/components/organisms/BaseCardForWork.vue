@@ -21,7 +21,7 @@
 
     <!-- TODO: ユーザー名とアイコンを表示する -->
     <v-card-subtitle>
-      <slot name="user_id" />
+      <slot name="name" />
     </v-card-subtitle>
   </v-card>
 </template>
