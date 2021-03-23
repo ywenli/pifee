@@ -16,7 +16,6 @@
         />
       </v-col>
     </v-row>
-
     <v-row>
       <v-col>
         人気のカテゴリー
@@ -48,7 +47,7 @@
       >
         <v-card
           flat
-          :to='`/_username/works/${filteredResults.id}`'
+          :to='`/${filteredResults.url}/works/${filteredResults.id}`'
         >
           <div class="d-flex flex-no-wrap justify-space-between">
             <div>
@@ -57,7 +56,7 @@
                 v-text="filteredResults.title"
               />
               <!-- TODO: ユーザー名とアイコンを表示する -->
-              <v-card-subtitle v-text="filteredResults.user_id" />
+              <v-card-subtitle v-text="filteredResults.name" />
             </div>
 
             <v-avatar

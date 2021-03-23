@@ -9,12 +9,12 @@
           {{ $route.params.username }}
         </div>
         <div class="my-4 text-body-2">
-          複素数体であれば、任意のCM-タイプの A は、実際、数体である定義体（英語版）(field of definition)を持っている。自己準同型環の可能なタイプは、対合（ロサチの対合（英語版）(Rosati involution）をもつ環として既に分類さ
+          {{ user.profile }}
         </div>
       </v-col>
       <v-col cols="2">
         <BaseButtonEdit
-          :to="`/${$auth.user.name}/settings`"
+          :to="`/${$auth.user.url}/settings`"
         />
       </v-col>
     </v-row>
@@ -45,13 +45,13 @@
                   lg="3"
                 >
                   <BaseCardForWork
-                    :to="`/${work.user_id}/works/${work.id}`"
+                    :to="`/${work.url}/works/${work.id}`"
                   >
                     <template #title>
                       {{ work.title }}
                     </template>
-                    <template #user_id>
-                      {{ work.user_id }}
+                    <template #name>
+                      {{ work.name }}
                     </template>
                   </BaseCardForWork>
                 </v-col>
@@ -75,7 +75,8 @@ export default {
   data () {
     return {
       works: [],
-      tab: null
+      tab: null,
+      user: []
     }
   },
   created () {
@@ -85,6 +86,10 @@ export default {
       }
     })
       .then((res) => { this.works = res.data })
+    this.$axios.get(`/api/v1/users/${this.$route.params.username}`)
+      .then((res) => {
+        this.user = res.data
+      })
   }
 }
 </script>

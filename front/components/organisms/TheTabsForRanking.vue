@@ -31,13 +31,13 @@
               lg="3"
             >
               <BaseCardForWork
-                :to="`/${work.user_id}/works/${work.id}`"
+                :to="`/${work.url}/works/${work.id}`"
               >
                 <template #title>
                   {{ work.title }}
                 </template>
-                <template #user_id>
-                  {{ work.user_id }}
+                <template #name>
+                  {{ work.name }}
                 </template>
               </BaseCardForWork>
             </v-col>
@@ -57,13 +57,13 @@
               lg="3"
             >
               <BaseCardForWork
-                :to="`/${work.user_id}/works/${work.id}`"
+                :to="`/${work.url}/works/${work.id}`"
               >
                 <template #title>
                   {{ work.title }}
                 </template>
-                <template #user_id>
-                  {{ work.user_id }}
+                <template #name>
+                  {{ work.name }}
                 </template>
               </BaseCardForWork>
             </v-col>
@@ -83,13 +83,13 @@
               lg="3"
             >
               <BaseCardForWork
-                :to="`/${work.user_id}/works/${work.id}`"
+                :to="`/${work.url}/works/${work.id}`"
               >
                 <template #title>
                   {{ work.title }}
                 </template>
-                <template #user_id>
-                  {{ work.user_id }}
+                <template #name>
+                  {{ work.name }}
                 </template>
               </BaseCardForWork>
             </v-col>

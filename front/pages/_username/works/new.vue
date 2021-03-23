@@ -89,7 +89,7 @@ export default {
           tag_list: this.tag_list
         })
         .then((res) => {
-          this.$router.push(`/${this.$auth.user.name}/works/${res.data.id}`)
+          this.$router.push(`/${this.$auth.user.url}/works/${res.data.id}`)
         })
     }
   }

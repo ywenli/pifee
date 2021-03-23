@@ -26,7 +26,7 @@
     </v-btn>
     <BaseButton
       color='primary'
-      :to='`/${$auth.user.name}/works/new`'
+      :to='`/${$auth.user.url}/works/new`'
       small
       nuxt
     >
@@ -36,7 +36,7 @@
       app
       offset-x
       offset-y
-      max-width='200'
+      max-width='250'
     >
       <template #activator='{ on, attrs }'>
         <v-btn
@@ -59,22 +59,28 @@
             <v-list-item-title>
               <v-icon>mdi-account</v-icon>
               <v-btn
-                :to="`/${$auth.user.name}`"
+                :to="`/${$auth.user.url}`"
                 class='text-none text-decoration-none pl-0'
                 depressed
                 text
                 plain
                 nuxt
                 :ripple="false"
+                max-height="100"
               >
-                {{ $auth.user.name }}
+                <div>
+                  {{ $auth.user.name }}
+                </div><br>
+                <div class="grey--text">
+                  @{{ $auth.user.url }}
+                </div>
               </v-btn>
-              <!-- 下のコードだとリンクが正常に遷移するときとしない時があるため、上のコードに変更
+            <!-- 下のコードだとリンクが正常に遷移するときとしない時があるため、上のコードに変更
               <nuxt-link
-                :to='`/${$auth.user.name}`'
+                :to='`/${$auth.user.url}`'
                 class='text-decoration-none black--text'
               >
-                {{ $auth.user.name }}
+                {{ $auth.user.url }}
               </nuxt-link>
               -->
             </v-list-item-title>
@@ -86,7 +92,7 @@
             <v-list-item-title>
               <v-icon>mdi-file-edit-outline</v-icon>
               <nuxt-link
-                :to="`/${$auth.user.name}/works`"
+                :to="`/${$auth.user.url}/works`"
                 class='text-decoration-none black--text pl-1'
               >
                 作品の管理
@@ -97,7 +103,7 @@
             <v-list-item-title>
               <v-icon>mdi-cog</v-icon>
               <nuxt-link
-                :to="`/${$auth.user.name}/settings`"
+                :to="`/${$auth.user.url}/settings`"
                 class='text-decoration-none black--text pl-1'
               >
                 アカウント設定

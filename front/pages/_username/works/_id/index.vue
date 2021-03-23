@@ -11,14 +11,17 @@
       </v-col>
       <v-col sm="2">
         <BaseButtonEdit
-          :to="`/${$auth.user.name}/works/${$route.params.id}/edit`"
+          :to="`/${$auth.user.url}/works/${$route.params.id}/edit`"
         />
       </v-col>
     </v-row>
     <v-row justify='start'>
       <v-col>
         <div class="user-id__link">
-          {{ user_id }}
+          {{ work.name }}
+        </div>
+        <div class="grey--text text-body-2">
+          @{{ work.url }}
         </div>
         <div class="work__created-at grey--text">
           <!-- TODO: 時間表示をYY/MM/DD にする -->
@@ -70,7 +73,8 @@ export default {
       title: '',
       body: '',
       created_at: '',
-      tags: []
+      tags: [],
+      work: []
     }
   },
   mounted () {
@@ -82,6 +86,7 @@ export default {
         this.body = res.data.body
         this.created_at = res.data.created_at
         this.tags = res.data.tag_list
+        this.work = res.data
       })
       .catch((err) => {
         console.log(err)

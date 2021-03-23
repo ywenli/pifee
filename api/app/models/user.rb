@@ -6,6 +6,9 @@ class User < ApplicationRecord
   # gem bcrypt
   has_secure_password
 
+  validates :url, presence: true,
+                  uniqueness: true,
+                  length: { maximum: 30, allow_blank: true}
   validates :name, presence: true,
                     length: { maximum: 30, allow_blank: true}
 
@@ -36,6 +39,6 @@ class User < ApplicationRecord
 
   # 共通のJSONレスポンス
   def my_json
-    as_json(only: [:id, :name, :email, :created_at])
+    as_json(only: [:id, :url, :name, :email, :created_at])
   end
 end

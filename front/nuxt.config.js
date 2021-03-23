@@ -64,7 +64,7 @@ export default {
         light: {
           primary: '8B85FF',
           info: '4FC1E9',
-          success: '44D69E',
+          success: '8BC34A',
           warning: 'FEB65E',
           error: 'FB8678'
         }

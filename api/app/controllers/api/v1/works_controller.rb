@@ -1,11 +1,11 @@
 class Api::V1::WorksController < ApplicationController
   def index
-    @work = Work.preload(:tags)
+    @work = Work.joins(:user).includes(:user).select('works.*, users.url, users.name')
     render json: @work
   end
 
   def show
-    @work = Work.find(params[:id])
+    @work = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').find(params[:id])
     render json: @work
   end
 
