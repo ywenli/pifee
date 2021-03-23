@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe '名前のバリデーション' do
+  xdescribe '名前のバリデーション' do
     it '名前の入力' do
       user = User.new(email: 'test@example.com', password: 'password')
       user.save

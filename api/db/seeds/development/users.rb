@@ -1,7 +1,9 @@
 10.times do |n|
+  url = "user#{n}_url"
   name = "user#{n}"
   email = "#{name}@example.com"
-  user = User.find_or_initialize_by(name: name, email: email, activated: true)
+  profile = "#{name}のプロフィール"
+  user = User.find_or_initialize_by(url: url, name: name, email: email, activated: true)
 
   if user.new_record?
     user.password = "password"
