@@ -19,7 +19,7 @@
         size="48"
         tile
       >
-        <img src="https://cdn.vuetifyjs.com/images/cards/foster.jpg" alt="alt">
+        <img :src="src">
       </v-avatar>
     </v-row>
   </v-card>
@@ -33,6 +33,10 @@ export default {
       default: () => []
     },
     to: {
+      type: String,
+      default: ''
+    },
+    src: {
       type: String,
       default: ''
     }
