@@ -20,8 +20,7 @@
       </v-col>
       <v-col cols="12" sm="6" md="6">
         <img
-          src="../../assets/image/home/well_done.svg"
-          width="400"
+          src="../../assets/image/home/well_done.svg?inline"
           height="255"
         >
       </v-col>
