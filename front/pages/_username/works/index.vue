@@ -115,7 +115,7 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get(`/api/v1/works/?user_id=${this.$auth.user.id}`)
+    this.$axios.get(`/api/v1/works/all?user_id=${this.$auth.user.id}`)
       .then((res) => {
         this.works = res.data
       })

@@ -14,6 +14,7 @@
           clearable
           prepend-inner-icon="mdi-magnify"
         />
+        {{ searchWord }}
       </v-col>
     </v-row>
     <v-row>
@@ -22,6 +23,7 @@
       </v-col>
     </v-row>
     <TheCardsForCategory />
+    <!-- TODO: 削除する -->
     <v-row dense>
       <v-col
         v-for="filteredResults in filter"
