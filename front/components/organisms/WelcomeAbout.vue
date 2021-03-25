@@ -24,9 +24,8 @@
       </v-col>
       <v-col cols="12" sm="6" md="6">
         <img
-          src="~/assets/image/home/content_team.svg"
-          width="400"
-          height="255"
+          src="~/assets/image/home/content_team.svg?inline"
+          width="312"
           alt="トップ画像"
         >
       </v-col>

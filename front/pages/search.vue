@@ -21,22 +21,7 @@
         人気のカテゴリー
       </v-col>
     </v-row>
-    <v-row>
-      <v-col
-        v-for="tag in tags"
-        :key="tag"
-        cols="4"
-        sm="3"
-        lg="2"
-      >
-        <BaseCardForCategory
-          v-model="tags"
-          :to='`/category/${tag}`'
-        >
-          {{ tag }}
-        </BaseCardForCategory>
-      </v-col>
-    </v-row>
+    <TheCardsForCategory />
     <v-row dense>
       <v-col
         v-for="filteredResults in filter"
@@ -75,14 +60,11 @@
 </template>
 
 <script>
-import BaseCardForCategory from '@/components/organisms/BaseCardForCategory.vue'
 export default {
-  components: { BaseCardForCategory },
   data () {
     return {
       searchWord: '',
-      searchResults: [],
-      tags: []
+      searchResults: []
     }
   },
   computed: {
@@ -101,10 +83,6 @@ export default {
     this.$axios.get('/api/v1/works')
       .then((res) => {
         this.searchResults = res.data
-      })
-    this.$axios.get('/api/v1/tags')
-      .then((res) => {
-        this.tags = [...res.data].map(value => value.name)
       })
   }
 }
