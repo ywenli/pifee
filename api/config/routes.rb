@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       resources :user_token, only: [:create] do
         delete :destroy, on: :collection
       end
-      resources :works
+      resources :works do
+        get :all, action: :get_works_all, on: :collection
+      end
       resources :tags, only: [:index, :show], param: :name
       resources :likes, only: [:index, :create, :destroy] do
         # ランキング(daily, weekly, all)
