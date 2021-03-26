@@ -1,8 +1,9 @@
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
   <v-container>
-    <v-row class="my-2">
+    <v-row class="mt-2">
       <v-col>
+        <!-- TODO: 検索フォームをコンポーネント化 -->
         <v-text-field
           v-model="searchWord"
           app
@@ -13,51 +14,43 @@
           autofocus
           clearable
           prepend-inner-icon="mdi-magnify"
+          @keyup.enter="search"
         />
-        {{ searchWord }}
+      </v-col>
+    </v-row>
+    <v-row class="mb-4">
+      <v-col
+        v-if="results.length == 0"
+        class="search__message font-weight-bold blue-grey--text text--lighten-2"
+      >
+        {{ message }}
+      </v-col>
+      <v-col
+        v-for="result in results"
+        v-else
+        :key="result.id"
+        cols="12"
+        sm="4"
+        lg="3"
+      >
+        <BaseCardForWork>
+          <template #title>
+            {{ result.title }}
+          </template>
+          <template #name>
+            {{ result.name }}
+          </template>
+        </BaseCardForWork>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
-        人気のカテゴリー
+        <div class="text-h6">
+          人気のカテゴリー
+        </div>
       </v-col>
     </v-row>
     <TheCardsForCategory />
-    <!-- TODO: 削除する -->
-    <v-row dense>
-      <v-col
-        v-for="filteredResults in filter"
-        :key="filteredResults.id"
-        cols="12"
-        sm="6"
-        lg="4"
-      >
-        <v-card
-          flat
-          :to='`/${filteredResults.url}/works/${filteredResults.id}`'
-        >
-          <div class="d-flex flex-no-wrap justify-space-between">
-            <div>
-              <v-card-title
-                class="headline"
-                v-text="filteredResults.title"
-              />
-              <!-- TODO: ユーザー名とアイコンを表示する -->
-              <v-card-subtitle v-text="filteredResults.name" />
-            </div>
-
-            <v-avatar
-              class="ma-3"
-              size="125"
-              tile
-            >
-              <!-- TODO: workの画像を取得する -->
-              <v-img :src='"https://cdn.vuetifyjs.com/images/cards/foster.jpg"' />
-            </v-avatar>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
   </v-container>
 </template>
 
@@ -66,10 +59,16 @@ export default {
   data () {
     return {
       searchWord: '',
-      searchResults: []
+      searchResults: [],
+      results: [],
+      message: '',
+      rules: [
+
+      ]
     }
   },
   computed: {
+    // TODO: 使ってないメソッドなので削除する
     filter () {
       const filteredResults = []
       for (const i in this.searchResults) {
@@ -86,10 +85,30 @@ export default {
       .then((res) => {
         this.searchResults = res.data
       })
+  },
+  methods: {
+    search () {
+      this.$axios.get('/api/v1/works/search', {
+        params: {
+          keyword: this.searchWord
+        }
+      })
+        .then((res) => {
+          this.results = res.data
+          if (this.results.length === 0) {
+            this.message = `${this.searchWord} の検索結果は見つかりませんでした`
+          }
+        })
+    }
   }
 }
 </script>
 
 <style>
-
+.v-text-field__details {
+  display: none;
+}
+.search__message {
+  text-align: center;
+}
 </style>
