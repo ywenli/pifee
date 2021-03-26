@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
       resources :works do
         get :all, action: :get_works_all, on: :collection
+        get :search, action: :search, on: :collection
       end
       resources :tags, only: [:index, :show], param: :name
       resources :likes, only: [:index, :create, :destroy] do

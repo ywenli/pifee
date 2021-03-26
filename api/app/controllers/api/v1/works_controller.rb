@@ -38,8 +38,18 @@ class Api::V1::WorksController < ApplicationController
     if @work.update(work_params)
       render json: @work
     else
-      render json: @work.errors
+      render json: @work.errors, status: :unprocessable_entity
     end
+  end
+
+  def search
+    @works = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').where(is_public: true)
+    # キーワードから半角と全角の空白を取り除いて配列にする
+    keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
+    keywords.each do |keyword|
+      @works = @works.where('title LIKE ?', "%#{keyword}%")
+    end
+    render json: @works
   end
 
   private
