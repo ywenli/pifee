@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :url, presence: true,
-                  uniqueness: true,
+                  uniqueness: {case_sensitive: false},
                   length: { maximum: 30, allow_blank: true}
   validates :name, presence: true,
                     length: { maximum: 30, allow_blank: true}
