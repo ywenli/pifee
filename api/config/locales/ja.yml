@@ -3,11 +3,15 @@ ja:
   activerecord:
     attributes:
       user:
-        name: 名前
+        url: URL
+        name: プロフィール名
         email: メールアドレス
         password: パスワード
         activated: アクティブフラグ
         admin: 管理者フラグ
+      work:
+        title: タイトル
+        body: 本文
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
