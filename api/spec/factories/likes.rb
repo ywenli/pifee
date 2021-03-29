@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :like do
-    user { nil }
-    work { nil }
+    user_id { 1 }
+    work_id { 1 }
+    ## associationはrspecでのみ有効にする
+    #association :user
   end
 end
