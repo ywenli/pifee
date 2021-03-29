@@ -9,6 +9,9 @@ ja:
         password: パスワード
         activated: アクティブフラグ
         admin: 管理者フラグ
+      work:
+        title: タイトル
+        body: 本文
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
