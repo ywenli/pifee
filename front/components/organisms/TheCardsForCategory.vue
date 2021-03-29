@@ -44,7 +44,7 @@ export default {
         { name: 'CSS', src: require('@/assets/image/svg/css-3.svg?inline') },
         { name: 'HTML5', src: require('@/assets/image/svg/html-5.svg?inline') },
         { name: 'Laravel', src: require('@/assets/image/svg/laravel.svg?inline') },
-        { name: 'Firevase', src: require('@/assets/image/svg/firebase.svg?inline') },
+        { name: 'Firebase', src: require('@/assets/image/svg/firebase.svg?inline') },
         { name: 'Flutter', src: require('@/assets/image/svg/flutter.svg?inline') },
         { name: 'Android', src: require('@/assets/image/svg/android-icon.svg?inline') }
       ]
