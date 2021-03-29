@@ -62,9 +62,7 @@ export default {
       searchResults: [],
       results: [],
       message: '',
-      rules: [
-
-      ]
+      rules: []
     }
   },
   computed: {
