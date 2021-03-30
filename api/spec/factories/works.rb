@@ -10,6 +10,7 @@ FactoryBot.define do
     association :user
   end
 
+  # TODO: traitを使ってリファクタリングする
   # ステータスが下書きのworkを生成
   factory :private, class: Work do
     sequence(:title) { |n| "下書きタイトル #{n}" }
