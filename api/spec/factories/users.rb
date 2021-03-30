@@ -6,8 +6,21 @@ FactoryBot.define do
     sequence(:profile) { |n| "#{name}のプロフィール" }
     password { 'password' }
     activated { true }
+
+    trait :with_works do
+      after(:build) do |user|
+        user.works << create(:public)
+      end
+    end
+    trait :with_likes do
+      after(:build) do |user|
+        user.likes << create(:like)
+      end
+    end
+
   end
 
+  # TODO: traitを使ってリファクタリングする
   # テスト用
   #factory :user_test do
   #  sequence(:url) { |n| "user#{n}_test_url" }

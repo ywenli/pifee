@@ -72,6 +72,8 @@ Lint/StructNewOverride:
 
 Layout/LineLength:
   Max: 150
+  Exclude:
+    - 'spec/factories/works.rb'
 
 Metrics/AbcSize:
   Exclude:

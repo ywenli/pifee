@@ -22,7 +22,7 @@ class Api::V1::LikesController < ApplicationController
   end
 
   # 今日のランキングから上位6つを取得
-  # TODO: 以下3つのランキングメソッドは冗長なのでリファクタリングする
+  # TODO: 以下3つはファットコントローラーなのでリファクタリングする（モデルに切り分ける）
   def get_top_6_in_daily_ranking
     @daily_ranks = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').find(Like.where(created_at: Time.current.all_day).group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
     render json: @daily_ranks
