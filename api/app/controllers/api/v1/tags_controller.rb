@@ -5,7 +5,7 @@ class Api::V1::TagsController < ApplicationController
   end
 
   def show
-    @works = Work.joins(:user).includes(:user).select('works.*, users.url').tagged_with(params[:name].to_s)
+    @works = Work.joins(:user).includes(:user).where(is_public: true).select('works.*, users.url').tagged_with(params[:name].to_s)
     render json: @works
   end
 end
