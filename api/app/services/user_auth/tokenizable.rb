@@ -39,6 +39,5 @@ module UserAuth
       def to_token_payload
         { sub: id }
       end
-
   end
 end

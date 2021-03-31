@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe "Api::V1::Works", type: :request do
+RSpec.describe 'Api::V1::Works', type: :request do
   describe 'GET /api/v1/works #index' do
     it '全てのworkを取得する(公開中のみ)' do
       create_list(:public, 5)
@@ -106,7 +106,7 @@ RSpec.describe "Api::V1::Works", type: :request do
       search_work = create(:public, title: '存在するタイトル')
     end
 
-    existing_title = "存在するタイトル"
+    existing_title = '存在するタイトル'
     not_existing_title = '存在しないタイトル'
     valid_params = { params: existing_title }
 

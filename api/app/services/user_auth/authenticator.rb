@@ -17,7 +17,7 @@ module UserAuth
       # リクエストヘッダーからトークンを取得する
       def token_from_request_headers
         # &: レシーバーが nil のときエラーを発生させず nil を返す
-        request.headers["Authorization"]&.split&.last
+        request.headers['Authorization']&.split&.last
       end
 
       # クッキーのオブジェクトキー(config/initializers/user_auth.rb)

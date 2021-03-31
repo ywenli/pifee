@@ -1,4 +1,4 @@
-inherit_from: .rubocop_todo.yml # .rubocop_todo.yml が空になったら、この行は削除しましょう。
+inherit_from: .rubocop_todo.yml # .rubocop_todo.yml が空になったら、この行は削除する
 
 # The behavior of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable

@@ -19,12 +19,12 @@ RSpec.describe 'Tags', type: :request do
 
   describe 'get /api/v1/tags/:name #show' do
     it '特定のタグに紐づいたwork(公開中のみ)を取得する' do
-      get "/api/v1/tags/Vue"
+      get '/api/v1/tags/Vue'
       json = JSON.parse(response.body)
 
       expect(response).to have_http_status(:ok)
       expect(json.length).to eq(5)
-      expect(json.first["tag_list"]).to include('Vue')
+      expect(json.first['tag_list']).to include('Vue')
     end
   end
 end

@@ -4,7 +4,7 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # プロセスが分岐した直後に呼び出し
-  parallelize_setup do |worker|
+  parallelize_setup do |_worker|
     load Rails.root.join('db/seeds.rb')
   end
 
@@ -19,8 +19,8 @@ class ActiveSupport::TestCase
     User.find_by(activated: true)
   end
 
-  def api_url(path = "/")
-    "#{ENV["BASE_URL"]}/api/v1/#{path}"
+  def api_url(path = '/')
+    "#{ENV['BASE_URL']}/api/v1/#{path}"
   end
 
   # コントローラーのJSONレスポンスを受け取る
