@@ -1,2 +1,2 @@
-5.times{ create(:private) }
-5.times{ create(:public) }
+30.times{ create(:public) }
+10.times{ create(:private) }

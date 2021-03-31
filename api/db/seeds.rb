@@ -4,10 +4,7 @@ include FactoryBot::Syntax::Methods
 FactoryBot.definition_file_paths = [ Rails.root.join('spec', 'factories') ]
 FactoryBot.reload
 
-table_names = %w(
-  users
-  works
-)
+table_names = %w(users works likes)
 
 table_names.each do |table_name|
   path = Rails.root.join("db/seeds/#{Rails.env}/#{table_name}.rb")
