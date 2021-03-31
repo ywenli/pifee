@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Api::V1::Users", type: :request do
   let(:user) { create(:user, activated: true) }
+
   describe 'GET /api/v1/users #index' do
     it '全てのユーザーを取得する' do
       create_list(:user, 5)
@@ -15,7 +16,7 @@ RSpec.describe "Api::V1::Users", type: :request do
 
   describe 'get /api/v1/users/:id #show' do
     it '特定のユーザーを取得する' do
-      #logged_in(user)
+      # logged_in(user)
       get "/api/v1/users/#{user.id}"
       json = JSON.parse(response.body)
 
@@ -34,9 +35,9 @@ RSpec.describe "Api::V1::Users", type: :request do
       name = 'user_name_updated'
       profile = '変更後のプロフィール'
       valid_params = { id: user.id,
-                        name: name,
-                        profile: profile }
-      #logged_in(user)
+                       name: name,
+                       profile: profile }
+      # logged_in(user)
       put "/api/v1/users/#{user.id}", params: valid_params, as: :json
       json = JSON.parse(response.body)
 
@@ -45,5 +46,4 @@ RSpec.describe "Api::V1::Users", type: :request do
       expect(json['profile']).to eq(profile)
     end
   end
-
 end

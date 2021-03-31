@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Tags', type: :request do
   before do
-    create_list(:public, 5, tag_list: ['Vue', 'Nuxt', 'Typescript'])
-    create_list(:private, 5, tag_list: ['Vue', 'Nuxt', 'Typescript'])
+    create_list(:public, 5, tag_list: %w[Vue Nuxt Typescript])
+    create_list(:private, 5, tag_list: %w[Vue Nuxt Typescript])
   end
+
   describe 'get /api/v1/tags #index' do
     it '全てのタグを取得する' do
       get '/api/v1/tags'

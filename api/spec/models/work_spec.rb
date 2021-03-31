@@ -5,6 +5,7 @@ RSpec.describe Work, type: :model do
     work = create(:public, title: 'タイトル')
     expect(work).to be_valid
   end
+
   it 'タイトルが存在しない場合、無効である' do
     work = build(:public, title: nil)
     work.valid?
