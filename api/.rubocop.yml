@@ -180,3 +180,7 @@ Style/SlicingWithRange:
 
 # 設定は以下のページを参考にしています
 # ref. https://qiita.com/piggydev/items/8a9f5cd4486861819a69
+
+# frozen_string_literalのマジックコメントを追加しない
+Style/FrozenStringLiteralComment:
+  Enabled: false
