@@ -43,6 +43,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
       like
       get '/api/v1/likes/all_ranking'
       json = JSON.parse(response.body)
+
       expect(response).to have_http_status(:ok)
       expect(json.length).to eq(1)
     end
@@ -53,6 +54,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
       like_weekly
       get '/api/v1/likes/weekly_ranking'
       json = JSON.parse(response.body)
+
       expect(response).to have_http_status(:ok)
       expect(json.length).to eq(1)
     end
@@ -63,6 +65,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
       like_daily
       get '/api/v1/likes/daily_ranking'
       json = JSON.parse(response.body)
+
       expect(response).to have_http_status(:ok)
       expect(json.length).to eq(1)
     end
