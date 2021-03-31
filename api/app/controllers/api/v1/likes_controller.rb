@@ -24,13 +24,13 @@ class Api::V1::LikesController < ApplicationController
   # 今日のランキングから上位6つを取得
   # TODO: 以下3つはファットコントローラーなのでリファクタリングする（モデルに切り分ける）
   def get_top_6_in_daily_ranking
-    @daily_ranks = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').find(Like.where(created_at: Time.current.all_day).group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
+    @daily_ranks = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').find(Like.where(created_at: Time.current - 1.days..Time.current).group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
     render json: @daily_ranks
   end
 
   # 週間のランキングから上位6つを取得
   def get_top_6_in_weekly_ranking
-    @weekly_ranks = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').find(Like.where(created_at: Time.current.all_week).group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
+    @weekly_ranks = Work.joins(:user).includes(:user).select('works.*, users.url, users.name').find(Like.where(created_at: Time.current - 7.days..Time.current).group(:work_id).order('count(work_id) desc').limit(6).pluck(:work_id))
     render json: @weekly_ranks
   end
 
