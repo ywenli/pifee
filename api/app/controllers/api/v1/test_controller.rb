@@ -1,5 +1,5 @@
 class Api::V1::TestController < ApplicationController
   def index
-    render json: "Test"
+    render json: 'Test'
   end
 end

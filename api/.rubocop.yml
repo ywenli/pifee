@@ -1,4 +1,4 @@
-inherit_from: .rubocop_todo.yml # .rubocop_todo.yml が空になったら、この行は削除しましょう。
+inherit_from: .rubocop_todo.yml # .rubocop_todo.yml が空になったら、この行は削除する
 
 # The behavior of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
@@ -180,3 +180,7 @@ Style/SlicingWithRange:
 
 # 設定は以下のページを参考にしています
 # ref. https://qiita.com/piggydev/items/8a9f5cd4486861819a69
+
+# frozen_string_literalのマジックコメントを追加しない
+Style/FrozenStringLiteralComment:
+  Enabled: false

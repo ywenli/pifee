@@ -3,8 +3,8 @@ module JsonApiHelpers
     User.find_by(activated: true)
   end
 
-  def api_url(path = "/")
-    "#{ENV["BASE_URL"]}/api/v1/#{path}"
+  def api_url(path = '/')
+    "#{ENV['BASE_URL']}/api/v1/#{path}"
   end
 
   # コントローラーのJSONレスポンスを受け取る

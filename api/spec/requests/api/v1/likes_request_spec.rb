@@ -21,7 +21,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
   describe 'POST /api/v1/likes #create' do
     it 'いいねを作成する' do
       expect do
-        post '/api/v1/likes', params: {user_id: user.id, work_id: work.id}, as: :json
+        post '/api/v1/likes', params: { user_id: user.id, work_id: work.id }, as: :json
       end.to change(Like, :count).by(+1)
       expect(response).to have_http_status(:ok)
     end
@@ -31,7 +31,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
     it 'いいねを削除する' do
       like
       expect do
-        delete "/api/v1/likes/#{like.id}", params: { user_id: user.id}
+        delete "/api/v1/likes/#{like.id}", params: { user_id: user.id }
       end.to change(Like, :count).by(-1)
       expect(response).to have_http_status(:ok)
     end
@@ -48,6 +48,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
       expect(json.length).to eq(1)
     end
   end
+
   describe 'GET /api/v1/likes/weekly_ranking #get_top_6_in_weekly_ranking' do
     # TODO: テストが不十分なので修正する
     it '週間のランキングで上位6つを取得する' do
@@ -59,6 +60,7 @@ RSpec.describe 'Api::V1::Likes', type: :request do
       expect(json.length).to eq(1)
     end
   end
+
   describe 'GET /api/v1/likes/daily_ranking #get_top_6_in_daily_ranking' do
     it '1日のランキングで上位6つを取得する' do
       # TODO: テストが不十分なので修正する

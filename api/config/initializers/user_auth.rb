@@ -5,12 +5,12 @@ module UserAuth
   # tokenの発行先（受信者）を指定
   mattr_accessor :token_audience
   self.token_audience = -> {
-    ENV["API_DOMAIN"]
+    ENV['API_DOMAIN']
   }
 
   # 署名アルゴリズムを指定: HS256
   mattr_accessor :token_signature_algorithm
-  self.token_signature_algorithm = "HS256"
+  self.token_signature_algorithm = 'HS256'
 
   # 署名に使用する鍵を指定: Railsのシークレットキーを使用
   mattr_accessor :token_secret_signature_key
@@ -29,5 +29,4 @@ module UserAuth
   # Railの例外を指定: ログインユーザーが見当たらないときは 'RecordNotFound' を返す
   mattr_accessor :not_found_exception_class
   self.not_found_exception_class = ActiveRecord::RecordNotFound
-
 end

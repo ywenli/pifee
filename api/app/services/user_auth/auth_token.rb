@@ -2,13 +2,11 @@ require 'jwt'
 
 module UserAuth
   class AuthToken
-    attr_reader :token
-    attr_reader :payload
-    attr_reader :lifetime
+    attr_reader :token, :payload, :lifetime
 
     def initialize(lifetime: nil, payload: {}, token: nil, options: {})
       if token.present?
-        @payload, _ = JWT.decode(token.to_s, decode_key, true, decode_options.merge(options))
+        @payload, = JWT.decode(token.to_s, decode_key, true, decode_options.merge(options))
         @token = token
       else
         @lifetime = lifetime || UserAuth.token_lifetime
@@ -19,7 +17,7 @@ module UserAuth
 
     # subjectからユーザーを検索する
     def entity_for_user
-      User.find @payload["sub"]
+      User.find @payload['sub']
     end
 
     # token_lifetimeの日本語変換を返す
@@ -28,7 +26,7 @@ module UserAuth
     #   time = 2, period = hour = 時間 }
     def lifetime_text
       time, period = @lifetime.inspect.delete_suffix('s').split
-      time + I18n.t("datetime.periods.#{period}", default: "")
+      time + I18n.t("datetime.periods.#{period}", default: '')
     end
 
     private
@@ -85,7 +83,7 @@ module UserAuth
       # エンコード時のヘッダー
       # Doc: https://openid-foundation-japan.github.io/draft-ietf-oauth-json-web-token-11.ja.html#typHdrDef
       def header_fields
-        { typ: "JWT" }
+        { typ: 'JWT' }
       end
   end
 end

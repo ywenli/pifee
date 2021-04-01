@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Tests", type: :request do
+RSpec.describe 'Api::V1::Tests', type: :request do
   describe 'test' do
     it 'トップページが表示される' do
       get '/api/v1/test'

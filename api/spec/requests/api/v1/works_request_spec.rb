@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe "Api::V1::Works", type: :request do
+RSpec.describe 'Api::V1::Works', type: :request do
   describe 'GET /api/v1/works #index' do
     it '全てのworkを取得する(公開中のみ)' do
       create_list(:public, 5)
@@ -44,7 +44,7 @@ RSpec.describe "Api::V1::Works", type: :request do
       valid_params = {  user_id: user.id,
                         title: 'タイトル',
                         body: '本文',
-                        tag_list: ['vue', 'nuxt'],
+                        tag_list: %w[vue nuxt],
                         is_public: true }
 
       expect do
@@ -71,9 +71,9 @@ RSpec.describe "Api::V1::Works", type: :request do
     tag_list = ['update']
     is_public = false
     valid_params = { title: title,
-                      body: body,
-                      tag_list: tag_list,
-                      is_public: is_public }
+                     body: body,
+                     tag_list: tag_list,
+                     is_public: is_public }
     invalid_params = { title: '' }
     context 'パラメータが正しい場合' do
       it '編集が成功する' do
@@ -88,6 +88,7 @@ RSpec.describe "Api::V1::Works", type: :request do
         expect(json['is_public']).to eq(is_public)
       end
     end
+
     context 'パラメータが正しくない場合' do
       it '編集が失敗する' do
         public_work = create(:public)
@@ -105,7 +106,7 @@ RSpec.describe "Api::V1::Works", type: :request do
       search_work = create(:public, title: '存在するタイトル')
     end
 
-    existing_title = "存在するタイトル"
+    existing_title = '存在するタイトル'
     not_existing_title = '存在しないタイトル'
     valid_params = { params: existing_title }
 
@@ -118,6 +119,7 @@ RSpec.describe "Api::V1::Works", type: :request do
         expect(json.length).to eq(1)
       end
     end
+
     context '検索ワードが存在しないタイトルの場合' do
       it '空のjsonを返す' do
         get '/api/v1/works/search', params: { keyword: not_existing_title }
