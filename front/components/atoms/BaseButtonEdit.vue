@@ -23,6 +23,11 @@ export default {
       require: true,
       default: ''
     }
+  },
+  data () {
+    return {
+      // jestのカバレッジレポートに反映させるために、空のdataブロックを置いています
+    }
   }
 }
 </script>

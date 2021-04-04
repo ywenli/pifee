@@ -11,8 +11,9 @@
           fab
           elevation="1"
           rounded
+          class="btn"
           v-on="on"
-          @click="dialogOpen"
+          @click="dialog = true; dialogOpen()"
         >
           <v-icon color="grey">
             mdi-trash-can-outline
