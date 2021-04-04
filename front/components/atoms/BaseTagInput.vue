@@ -39,7 +39,6 @@ export default {
   data () {
     return {
       tags: [],
-      // TODO: 言語のマテリアルアイコンを表示する
       items: ['javascript', 'vue', 'react', 'nuxt', 'next', 'typescript'],
       search: null // sync search
     }

@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 version: "3.8"
-=======
-version: '3.8'
->>>>>>> origin/develop
 
 services:
   db:
     image: mysql:5.7.33
     environment:
-<<<<<<< HEAD
       TZ: "Asia/Tokyo"
-=======
-      TZ: 'Asia/Tokyo'
->>>>>>> origin/develop
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
     volumes:
       - mysql-data:/var/lib/mysql

@@ -1,9 +1,7 @@
 /.env
 /.vscode
 api-test.rest
-<<<<<<< HEAD
 ubuntu-xenial-16.04-cloudimg-console.log
 mutagen.yml.lock
 .vagrant
-=======
->>>>>>> origin/develop
+*.log

@@ -13,10 +13,6 @@
 <script>
 export default {
   props: {
-    class: {
-      type: String,
-      default: ''
-    },
     color: {
       type: String,
       default: ''

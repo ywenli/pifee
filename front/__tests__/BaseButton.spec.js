@@ -1,8 +1,36 @@
 import BaseButton from '@/components/atoms/BaseButton.vue'
-import { mount } from '@/vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
+
 describe('BaseButton', () => {
+  const localVue = createLocalVue()
+  let vuetify
+
+  beforeEach(() => {
+    vuetify = new Vuetify()
+  })
+
   it('clickメソッドを呼ぶ', () => {
-    const wrapper = mount(BaseButton)
-    expect(wrapper.isVueInstance).toBeTruthy()
+    const wrapper = shallowMount(BaseButton, {
+      localVue,
+      vuetify
+    })
+
+    wrapper.vm.click()
+    expect(wrapper.emitted('click')).not.toBeUndefined()
+    expect(wrapper.emitted('click')).toBeTruthy()
+    expect(wrapper.emitted('click').length).toBe(1)
+  })
+  it('propsを受け取ることができる', () => {
+    const wrapper = shallowMount(BaseButton, {
+      localVue,
+      vuetify,
+      propsData: {
+        color: 'primary',
+        to: '/'
+      }
+    })
+    expect(wrapper.vm.$props.color).toBe('primary')
+    expect(wrapper.vm.$props.to).toBe('/')
   })
 })
