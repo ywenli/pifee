@@ -44,9 +44,9 @@ export default {
       return Boolean(this.findLikeId())
     }
   },
-  created () {
+  async created () {
     // TODO: work_idでlikeのデータを取ってくる処理が registerLike()と重複しているのでまとめる
-    this.$axios.get(`/api/v1/likes/?work_id=${this.$route.params.id}`)
+    return await this.$axios.get(`/api/v1/likes/?work_id=${this.$route.params.id}`)
       .then((res) => {
         this.likeList = res.data
       })
@@ -66,7 +66,7 @@ export default {
       //  .then((res) => {
       //    this.likeList = res.data
       //  })
-      const res = await this.$axios.post('/api/v1/likes',
+      await this.$axios.post('/api/v1/likes',
         {
           work_id: this.$route.params.id, user_id: this.$auth.user.id
         }
