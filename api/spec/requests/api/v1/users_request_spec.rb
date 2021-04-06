@@ -3,6 +3,15 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::Users', type: :request do
   let(:user) { create(:user, activated: true) }
 
+  def user_token_logged_in(user)
+    params = { auth: { email: user.email, password: 'password' } }
+    post api_url('/user_token'), params: params
+  end
+
+  before do
+    user_token_logged_in(user)
+  end
+
   describe 'GET /api/v1/users #index' do
     it '全てのユーザーを取得する' do
       create_list(:user, 5)
@@ -10,7 +19,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
       json = JSON.parse(response.body)
 
       expect(response).to have_http_status(:ok)
-      expect(json.length).to eq(5)
+      expect(json.length).to eq(6)
     end
   end
 
