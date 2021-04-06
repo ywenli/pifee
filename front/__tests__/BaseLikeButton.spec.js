@@ -11,6 +11,19 @@ const likeList = [{ id: 1, user_id: 1, work_id: 1 }]
 
 jest.mock('axios')
 
+// deleteLikeのテスト用
+let url = ''
+let data = ''
+const mockHttp = {
+  get: (_url, _data) => {
+    return new Promise((resolve, reject) => {
+      url = _url
+      data = _data
+      resolve()
+    })
+  }
+}
+
 describe('BaseLikeButton', () => {
   const localVue = createLocalVue()
   localVue.prototype.$axios = axios
@@ -52,11 +65,34 @@ describe('BaseLikeButton', () => {
     // wrapper.setMethods({ registerLike })
     wrapper.find('.button__unlike').trigger('click')
     await flushPromises()
+    // FIXME: テストが通らないので修正する
     expect(spyRegisterLike).toHaveBeenCalled()
     expect(wrapper.vm.likeList.length).toEqual(1)
   })
 
-  it.skip('@clickでdeleteLike()が発火する', () => {
+  it.skip('@clickでdeleteLike()が発火する', async () => {
+    const likeList = [{ id: 1, user_id: 1, work_id: 1 }]
+    const wrapper = shallowMount(BaseLikeButton, {
+      mocks: {
+        $axios: mockHttp,
+        $route: {
+          params: {
+            user_id: 1
+          }
+        },
+        $auth: {
+          user: {
+            id: 1
+          }
+        }
+      }
+    })
 
+    wrapper.vm.likeList = likeList
+    expect(wrapper.vm.countLike).toBe(1)
+    wrapper.find('.button__unlike').trigger('click')
+    await flushPromises()
+    // FIXME: テストが通らないので修正する
+    expect(wrapper.vm.countLike).toBe(0)
   })
 })
