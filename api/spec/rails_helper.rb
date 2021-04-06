@@ -67,4 +67,7 @@ RSpec.configure do |config|
 
   # JsonApiHelpers を読み込む
   config.include JsonApiHelpers
+
+  # travel_toを使うため、Timeヘルパーを読み込む
+  config.include ActiveSupport::Testing::TimeHelpers
 end
