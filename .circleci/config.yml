@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test_api:
     docker:
-      - image: ruby:2.7.2
+      - image: circleci/ruby:2.7.2
         environment:
           TZ: 'Asia/Tokyo'
           RAILS_ENV: test
