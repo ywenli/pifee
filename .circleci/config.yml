@@ -8,6 +8,9 @@ jobs:
           TZ: 'Asia/Tokyo'
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
+          API_PORT: 3000
+          FRONT_PORT: 8080
+          API_DOMAIN: localhost:8080
       #- image: circleci/mysql:5.7.33
       - image: mysql:5.7.33
         environment:
