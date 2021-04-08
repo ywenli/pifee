@@ -17,6 +17,8 @@ jobs:
     working_directory: ~/repo
     environment:
       TZ: 'Asia/Tokyo'
+      API_PORT: 3000
+      FRONT_PORT: 8080
 
     steps:
       - checkout
