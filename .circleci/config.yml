@@ -5,14 +5,25 @@ jobs:
     docker:
       - image: circleci/ruby:2.7.2
         environment:
+          TZ: 'Asia/Tokyo'
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
+          API_PORT: 3000
+          FRONT_PORT: 8080
+          CONTAINER_PORT: 3000
+          WORKDIR: app
+          API_DOMAIN: 'localhost:$FRONT_PORT'
       #- image: circleci/mysql:5.7.33
       - image: mysql:5.7.33
         environment:
+          TZ: 'Asia/Tokyo'
           MYSQL_ROOT_PASSWORD: password
 
     working_directory: ~/repo
+    environment:
+      TZ: 'Asia/Tokyo'
+      API_PORT: 3000
+      FRONT_PORT: 8080
 
     steps:
       - checkout

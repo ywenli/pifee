@@ -184,3 +184,7 @@ Style/SlicingWithRange:
 # frozen_string_literalのマジックコメントを追加しない
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/TrailingUnderscoreVariable:
+  Exclude:
+    - 'app/services/user_auth/auth_token.rb'

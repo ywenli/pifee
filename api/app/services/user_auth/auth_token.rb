@@ -6,7 +6,7 @@ module UserAuth
 
     def initialize(lifetime: nil, payload: {}, token: nil, options: {})
       if token.present?
-        @payload, = JWT.decode(token.to_s, decode_key, true, decode_options.merge(options))
+        @payload, _ = JWT.decode(token.to_s, decode_key, true, decode_options.merge(options))
         @token = token
       else
         @lifetime = lifetime || UserAuth.token_lifetime
