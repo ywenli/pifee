@@ -12,6 +12,7 @@ jobs:
           FRONT_PORT: 8080
           CONTAINER_PORT: 3000
           WORKDIR: app
+          API_DOMAIN: 'localhost:$FRONT_PORT'
       #- image: circleci/mysql:5.7.33
       - image: mysql:5.7.33
         environment:
