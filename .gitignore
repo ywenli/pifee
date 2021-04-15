@@ -5,4 +5,3 @@ ubuntu-xenial-16.04-cloudimg-console.log
 mutagen.yml.lock
 .vagrant
 *.log
-api/.viminfo

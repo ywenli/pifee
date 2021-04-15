@@ -25,7 +25,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials.yml.enc
 
 .bash_history
 .irb_history
 .cache
+
+.viminfo
