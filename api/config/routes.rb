@@ -21,6 +21,9 @@ Rails.application.routes.draw do
         get :weekly_ranking, action: :get_top_6_in_weekly_ranking, on: :collection
         get :all_ranking, action: :get_top_6_in_all_ranking, on: :collection
       end
+      resources :s3 do
+        get :presigned_url, action: :presigned_url, on: :collection
+      end
     end
   end
 end
