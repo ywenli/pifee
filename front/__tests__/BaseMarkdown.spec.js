@@ -51,7 +51,5 @@ describe('BaseMarkdown', () => {
 
     console.log(wrapper.presignedObject)
     // expect(wrapper.presignedObject).toEqual(response)
-    console.log(wrapper.find('.test').text())
-    // expect(wrapper.find('.test').text()).toEqual(response)
   })
 })
