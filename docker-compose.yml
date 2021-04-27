@@ -17,6 +17,7 @@ services:
     environment:
       API_DOMAIN: "localhost:$FRONT_PORT"
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      S3_BUCKET: $S3_BUCKET
     volumes:
       - ./api:/$WORKDIR:cached
       - gem-data:/usr/local/bundle:cached

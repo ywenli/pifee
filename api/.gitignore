@@ -29,3 +29,5 @@
 .bash_history
 .irb_history
 .cache
+
+.viminfo
