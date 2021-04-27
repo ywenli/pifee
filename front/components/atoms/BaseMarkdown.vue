@@ -12,9 +12,6 @@
       placeholder="Write in Markdown"
       @imgAdd="$imgAdd"
     />
-    <div class="test">
-      {{ presignedObject }}
-    </div>
   </div>
 </template>
 <script>
